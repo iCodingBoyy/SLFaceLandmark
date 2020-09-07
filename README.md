@@ -7,7 +7,7 @@
 
 ### 一、简介
 
-SLFaceLandmark 是人脸关键点检测动态库，支持静态图片和动态视频帧人脸关键点检测。
+`SLFaceLandmark` 是人脸关键点检测动态库，支持静态图片和动态视频帧人脸关键点检测。
 
 ### 快速集成
 #### 1.1、`SLFaceLandmark` 集成非常简单，将`framework`包拖到你的`Xcode`工程，将`Embed`设置为`Embed & Sign`。
@@ -25,7 +25,7 @@ pod 'OpenSSL-Universal', '~> 1.0.2.20'
 #### 1.4、框架内部添加了分类文件，注意设置`-ObjC`标识
 
 ### 二、SDK授权
-调用SLFaceLandmark.framework动态库前，你需要前往[开放平台](https://www.baidu.com)注册账号，并在管理后台申请集成的应用，获取AppId和AppSecret。
+调用`SLFaceLandmark.framework`动态库前，你需要联系`HET`相关人员获取注册应用的`AppId`和`AppSecret`。
 具体可咨询相关客服。
 一切准备妥当后，在应用中优先申请注册获取授权信息。
 
@@ -41,7 +41,7 @@ pod 'OpenSSL-Universal', '~> 1.0.2.20'
 
 
 ### 三、接入指南
-在调用相关接口前请先下载SDK，查看相关头文件，熟悉调用接口。
+在调用相关接口前请先下载`SDK`，查看相关头文件，熟悉调用接口。
 数据帧、静态图片、视频帧检测不能混合调用，都是相互独立的，每一项检测都需要单独初始化检测器，都需要执行 `模型初始化、开启检测器、人脸和关键点检测、关闭检测器`相关流程。
 使用前优先导入头文件：
 ```Objective-C
@@ -60,7 +60,7 @@ pod 'OpenSSL-Universal', '~> 1.0.2.20'
     }
 ```
 #### 3.2、开启检测线程
-开启检测线程,开启检测前需要做相关的配置，如设置照片的方向、检测模式等，静态图片竖直方向可设置0度检测，如果照片是横向的需要进行翻转，视频帧也是一样，请注意相机videoConnection的方向。
+开启检测线程,开启检测前需要做相关的配置，如设置照片的方向、检测模式等，静态图片竖直方向可设置0度检测，如果照片是横向的需要进行翻转，视频帧也是一样，请注意相机`videoConnection`的方向。
 @see `SLFaceLandmarkConfig`
 ```Objective-C
     SLFaceLandmarkConfig *config = [[SLFaceLandmarkConfig alloc]init];
@@ -78,8 +78,9 @@ pod 'OpenSSL-Universal', '~> 1.0.2.20'
 ```
 
 #### 3.3、调用检测接口
-当检测线程正常开启后，可调用接口进行人脸关键点检测，支持数据、人脸图片、视频帧buffer检测
+当检测线程正常开启后，可调用接口进行人脸关键点检测，支持数据、人脸图片、视频帧`buffer`检测
 ##### 3.3.1、数据帧检测
+为防止数据格式不兼容造成问题，此接口最好把人脸图像`SL_DATA_FRAME`结构体数据转换为`RGBA`格式输入，其他格式需要注意下图像排列问题。
 ```Objective-C
     // 初始化数据帧结构体
     SL_DATA_FRAME sl_data_frame;
@@ -143,4 +144,5 @@ pod 'OpenSSL-Universal', '~> 1.0.2.20'
    [_flDetector close];
 ```
 
-### 四、
+### 四、备注
+目前`SDK`暂不支持输出人脸框，仅支持`SLFaceDetectionModeImage`和`SLFaceDetectionModeVideoTracking`关键点检测模式，后续会补充人脸框输出和单独的人脸框检测功能。
