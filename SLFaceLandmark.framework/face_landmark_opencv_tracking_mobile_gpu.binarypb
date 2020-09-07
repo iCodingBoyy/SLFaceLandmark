@@ -1,0 +1,15 @@
+
+kFlowLimiterCalculatorinput_videoFINISHED:last_face_landmarks"throttled_input_video_cpuj
+FINISHED
+SImageFrameToGpuBufferCalculatorthrottled_input_video_cpu"throttled_input_video
+nPreviousLoopbackCalculatorMAIN:throttled_input_videoLOOP:track_flag"PREV_LOOP:prev_track_flagj
+LOOP
+˜GateCalculatorthrottled_input_videoDISALLOW:prev_track_flag"face_detection_input_videoB9
+3type.googleapis.com/mediapipe.GateCalculatorOptions
+TFaceDetectionSubgraphGpuface_detection_input_video"DETECTIONS:output_detections
+…OpencvTrackerCalculatorthrottled_input_video_cpuDETECTIONS:output_detectionsFLAG:loop_track_flag"DETECTIONS:tracked_detections"FLAG:track_flag"LANDMARKS:empty_face_landmarksBK
+<type.googleapis.com/mediapipe.OpencvTrackerCalculatorOptions(5ÍÌL?
+¡FaceLandmarkSubgraphGpuIMAGE:throttled_input_videoDETECTIONS:tracked_detections"*NORM_RECT:face_rect_from_output_detections"LANDMARKS:fixed_face_landmarks
+nPreviousLoopbackCalculatorMAIN:throttled_input_videoLOOP:track_flag"PREV_LOOP:loop_track_flagj
+LOOP
+RMergeCalculatorempty_face_landmarksfixed_face_landmarks"last_face_landmarksRinput_videozlast_face_landmarks
