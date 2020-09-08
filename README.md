@@ -10,8 +10,11 @@
 `SLFaceLandmark` 是人脸关键点检测动态库，支持静态图片和动态视频帧人脸关键点检测。
 
 ### 二、预览
+
 下图静态图片人脸关键点展示，动态视频帧可运行demo看效果
-[静态人脸图片关键点](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a876a351ca4b4aafadf6d4a85e8d437f~tplv-k3u1fbpfcp-zoom-1.image)
+
+![静态人脸图片关键点](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/31a56519df2e4705aeb237791cfc8e47~tplv-k3u1fbpfcp-zoom-1.image)
+
 
 
 ### 三、快速集成
