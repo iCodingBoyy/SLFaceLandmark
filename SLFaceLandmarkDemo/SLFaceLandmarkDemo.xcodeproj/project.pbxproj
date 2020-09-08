@@ -1,0 +1,737 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0A32FCD81C77727A880FDF76 /* libPods-SLFaceLandmarkDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A7F4DF726242CB06A4CF17A /* libPods-SLFaceLandmarkDemo.a */; };
+		6B0DB80A2501E5F9004DFD14 /* SLFaceLandmark.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B8E4B4624EE1E79003E6EC7 /* SLFaceLandmark.framework */; };
+		6B0DB80B2501E5F9004DFD14 /* SLFaceLandmark.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6B8E4B4624EE1E79003E6EC7 /* SLFaceLandmark.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6B0DB81125023178004DFD14 /* 1FBD663F-A932-4168-8984-E94278B018BF.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6B0DB80F25023178004DFD14 /* 1FBD663F-A932-4168-8984-E94278B018BF.jpg */; };
+		6B0DB81525024E1A004DFD14 /* UIImage+HETARFace.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B0DB81325024E1A004DFD14 /* UIImage+HETARFace.m */; };
+		6B5088B624F3866D00D64877 /* SSCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B5088B424F3866D00D64877 /* SSCamera.m */; };
+		6B5088BB24F3867800D64877 /* AVCaptureDevice+SSDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B5088B724F3867700D64877 /* AVCaptureDevice+SSDevice.m */; };
+		6B5088BC24F3867800D64877 /* UIDevice+SSDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B5088B824F3867800D64877 /* UIDevice+SSDevice.m */; };
+		6B5088BF24F3868500D64877 /* SSFaceObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B5088BE24F3868500D64877 /* SSFaceObject.m */; };
+		6B5088C224F3879C00D64877 /* SSAnimationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B5088C024F3879C00D64877 /* SSAnimationDelegate.m */; };
+		6B5088C724F3949F00D64877 /* SSGLKView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B5088C524F3949F00D64877 /* SSGLKView.m */; };
+		6B5679F324FCC9A200EE0008 /* rsa_private_key_pkcs8.pem in Resources */ = {isa = PBXBuildFile; fileRef = 6B5679F124FCC9A200EE0008 /* rsa_private_key_pkcs8.pem */; };
+		6B8BC68B24F8DA3F004C4BF0 /* rsa_public_key.pem in Resources */ = {isa = PBXBuildFile; fileRef = 6B8BC68A24F8DA3F004C4BF0 /* rsa_public_key.pem */; };
+		6B8E4B1D24EE0951003E6EC7 /* SLNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B8E4B1C24EE0951003E6EC7 /* SLNavigationController.m */; };
+		6B8E4B2024EE099D003E6EC7 /* SLCommonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B8E4B1F24EE099D003E6EC7 /* SLCommonViewController.m */; };
+		6B8E4B2324EE09CF003E6EC7 /* SLTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B8E4B2224EE09CF003E6EC7 /* SLTableViewController.m */; };
+		6B8E4B2624EE0C9C003E6EC7 /* SLImageDetectionViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6B8E4B2524EE0C9C003E6EC7 /* SLImageDetectionViewController.mm */; };
+		6B8E4B2924EE0CAA003E6EC7 /* SLVideoBufferDetectionViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6B8E4B2824EE0CAA003E6EC7 /* SLVideoBufferDetectionViewController.mm */; };
+		6B8E4B2C24EE0DD3003E6EC7 /* frame.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6B8E4B2B24EE0DD3003E6EC7 /* frame.jpg */; };
+		6B8E4B4124EE0EE3003E6EC7 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B8E4B3F24EE0EE3003E6EC7 /* opencv2.framework */; };
+		6B9765D924EE056900CDE0FB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B9765D824EE056900CDE0FB /* AppDelegate.m */; };
+		6B9765DF24EE056900CDE0FB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B9765DE24EE056900CDE0FB /* ViewController.m */; };
+		6B9765E224EE056900CDE0FB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B9765E024EE056900CDE0FB /* Main.storyboard */; };
+		6B9765E424EE056B00CDE0FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6B9765E324EE056B00CDE0FB /* Assets.xcassets */; };
+		6B9765E724EE056B00CDE0FB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B9765E524EE056B00CDE0FB /* LaunchScreen.storyboard */; };
+		6B9765EA24EE056B00CDE0FB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B9765E924EE056B00CDE0FB /* main.m */; };
+		6BA7298D25061E970035E02F /* SLSDKJSONFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BA7297325061E970035E02F /* SLSDKJSONFile.m */; };
+		6BA7298E25061E970035E02F /* SLFaceDetectionResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BA7297625061E970035E02F /* SLFaceDetectionResult.m */; };
+		6BA7298F25061E970035E02F /* SLSDKAuthURL.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BA7297725061E970035E02F /* SLSDKAuthURL.m */; };
+		6BA7299025061E970035E02F /* SLSDKAuthAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BA7297825061E970035E02F /* SLSDKAuthAPI.m */; };
+		6BA7299125061E970035E02F /* SLFaceLandmarkConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BA7297925061E970035E02F /* SLFaceLandmarkConfig.m */; };
+		6BA7299225061E970035E02F /* SLFaceLandmark.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BA7297C25061E970035E02F /* SLFaceLandmark.m */; };
+		6BA7299325061E970035E02F /* SLSDKAuthDefine.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BA7297D25061E970035E02F /* SLSDKAuthDefine.m */; };
+		6BA7299425061E970035E02F /* SLSDKAuthUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BA7297E25061E970035E02F /* SLSDKAuthUtils.m */; };
+		6BA7299525061E970035E02F /* SLRSAProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BA7297F25061E970035E02F /* SLRSAProvider.m */; };
+		6BA7299625061E970035E02F /* SLFaceLandmarkDetector.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6BA7298125061E970035E02F /* SLFaceLandmarkDetector.mm */; };
+		6BA7299725061E970035E02F /* SLSDKAuthProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BA7298525061E970035E02F /* SLSDKAuthProvider.m */; };
+		6BA7299825061E970035E02F /* NSDictionary+SLSDKAuth.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BA7298725061E970035E02F /* NSDictionary+SLSDKAuth.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		6BC2D09824F64904007F3620 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6BADD48D24F608C400752B23 /* SLSafeKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6BADD48124F608C400752B23;
+			remoteInfo = SLSafeKit;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		6B0DB80C2501E5F9004DFD14 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				6B0DB80B2501E5F9004DFD14 /* SLFaceLandmark.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		20CA21FA3C0657A78E5EE0E4 /* Pods-SLFaceLandmarkDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SLFaceLandmarkDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-SLFaceLandmarkDemo/Pods-SLFaceLandmarkDemo.release.xcconfig"; sourceTree = "<group>"; };
+		6B0DB80F25023178004DFD14 /* 1FBD663F-A932-4168-8984-E94278B018BF.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "1FBD663F-A932-4168-8984-E94278B018BF.jpg"; sourceTree = "<group>"; };
+		6B0DB81325024E1A004DFD14 /* UIImage+HETARFace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+HETARFace.m"; sourceTree = "<group>"; };
+		6B0DB81425024E1A004DFD14 /* UIImage+HETARFace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+HETARFace.h"; sourceTree = "<group>"; };
+		6B5088B424F3866D00D64877 /* SSCamera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSCamera.m; sourceTree = "<group>"; };
+		6B5088B524F3866D00D64877 /* SSCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSCamera.h; sourceTree = "<group>"; };
+		6B5088B724F3867700D64877 /* AVCaptureDevice+SSDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AVCaptureDevice+SSDevice.m"; sourceTree = "<group>"; };
+		6B5088B824F3867800D64877 /* UIDevice+SSDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+SSDevice.m"; sourceTree = "<group>"; };
+		6B5088B924F3867800D64877 /* UIDevice+SSDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+SSDevice.h"; sourceTree = "<group>"; };
+		6B5088BA24F3867800D64877 /* AVCaptureDevice+SSDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AVCaptureDevice+SSDevice.h"; sourceTree = "<group>"; };
+		6B5088BD24F3868400D64877 /* SSFaceObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSFaceObject.h; sourceTree = "<group>"; };
+		6B5088BE24F3868500D64877 /* SSFaceObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSFaceObject.m; sourceTree = "<group>"; };
+		6B5088C024F3879C00D64877 /* SSAnimationDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSAnimationDelegate.m; sourceTree = "<group>"; };
+		6B5088C124F3879C00D64877 /* SSAnimationDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSAnimationDelegate.h; sourceTree = "<group>"; };
+		6B5088C524F3949F00D64877 /* SSGLKView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSGLKView.m; sourceTree = "<group>"; };
+		6B5088C624F3949F00D64877 /* SSGLKView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSGLKView.h; sourceTree = "<group>"; };
+		6B5679F124FCC9A200EE0008 /* rsa_private_key_pkcs8.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = rsa_private_key_pkcs8.pem; sourceTree = "<group>"; };
+		6B8BC68A24F8DA3F004C4BF0 /* rsa_public_key.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = rsa_public_key.pem; sourceTree = "<group>"; };
+		6B8E4B1B24EE0951003E6EC7 /* SLNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLNavigationController.h; sourceTree = "<group>"; };
+		6B8E4B1C24EE0951003E6EC7 /* SLNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLNavigationController.m; sourceTree = "<group>"; };
+		6B8E4B1E24EE099D003E6EC7 /* SLCommonViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLCommonViewController.h; sourceTree = "<group>"; };
+		6B8E4B1F24EE099D003E6EC7 /* SLCommonViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLCommonViewController.m; sourceTree = "<group>"; };
+		6B8E4B2124EE09CF003E6EC7 /* SLTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLTableViewController.h; sourceTree = "<group>"; };
+		6B8E4B2224EE09CF003E6EC7 /* SLTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLTableViewController.m; sourceTree = "<group>"; };
+		6B8E4B2424EE0C9C003E6EC7 /* SLImageDetectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLImageDetectionViewController.h; sourceTree = "<group>"; };
+		6B8E4B2524EE0C9C003E6EC7 /* SLImageDetectionViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SLImageDetectionViewController.mm; sourceTree = "<group>"; };
+		6B8E4B2724EE0CAA003E6EC7 /* SLVideoBufferDetectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLVideoBufferDetectionViewController.h; sourceTree = "<group>"; };
+		6B8E4B2824EE0CAA003E6EC7 /* SLVideoBufferDetectionViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SLVideoBufferDetectionViewController.mm; sourceTree = "<group>"; };
+		6B8E4B2B24EE0DD3003E6EC7 /* frame.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = frame.jpg; sourceTree = "<group>"; };
+		6B8E4B3F24EE0EE3003E6EC7 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
+		6B8E4B4624EE1E79003E6EC7 /* SLFaceLandmark.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SLFaceLandmark.framework; path = SLFaceLandmarkDemo/Lib/SLFaceLandmark.framework; sourceTree = "<group>"; };
+		6B9765D424EE056900CDE0FB /* SLFaceLandmarkDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SLFaceLandmarkDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6B9765D724EE056900CDE0FB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		6B9765D824EE056900CDE0FB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		6B9765DD24EE056900CDE0FB /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		6B9765DE24EE056900CDE0FB /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		6B9765E124EE056900CDE0FB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		6B9765E324EE056B00CDE0FB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6B9765E624EE056B00CDE0FB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		6B9765E824EE056B00CDE0FB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6B9765E924EE056B00CDE0FB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		6BA7297325061E970035E02F /* SLSDKJSONFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLSDKJSONFile.m; sourceTree = "<group>"; };
+		6BA7297425061E970035E02F /* SLRSAProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLRSAProvider.h; sourceTree = "<group>"; };
+		6BA7297525061E970035E02F /* SLSDKAuthProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLSDKAuthProvider.h; sourceTree = "<group>"; };
+		6BA7297625061E970035E02F /* SLFaceDetectionResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLFaceDetectionResult.m; sourceTree = "<group>"; };
+		6BA7297725061E970035E02F /* SLSDKAuthURL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLSDKAuthURL.m; sourceTree = "<group>"; };
+		6BA7297825061E970035E02F /* SLSDKAuthAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLSDKAuthAPI.m; sourceTree = "<group>"; };
+		6BA7297925061E970035E02F /* SLFaceLandmarkConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLFaceLandmarkConfig.m; sourceTree = "<group>"; };
+		6BA7297A25061E970035E02F /* SLFaceLandmarkDetector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLFaceLandmarkDetector.h; sourceTree = "<group>"; };
+		6BA7297B25061E970035E02F /* NSDictionary+SLSDKAuth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+SLSDKAuth.h"; sourceTree = "<group>"; };
+		6BA7297C25061E970035E02F /* SLFaceLandmark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLFaceLandmark.m; sourceTree = "<group>"; };
+		6BA7297D25061E970035E02F /* SLSDKAuthDefine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLSDKAuthDefine.m; sourceTree = "<group>"; };
+		6BA7297E25061E970035E02F /* SLSDKAuthUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLSDKAuthUtils.m; sourceTree = "<group>"; };
+		6BA7297F25061E970035E02F /* SLRSAProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLRSAProvider.m; sourceTree = "<group>"; };
+		6BA7298025061E970035E02F /* SLSDKJSONFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLSDKJSONFile.h; sourceTree = "<group>"; };
+		6BA7298125061E970035E02F /* SLFaceLandmarkDetector.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SLFaceLandmarkDetector.mm; sourceTree = "<group>"; };
+		6BA7298225061E970035E02F /* SLSDKAuthAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLSDKAuthAPI.h; sourceTree = "<group>"; };
+		6BA7298325061E970035E02F /* SLSDKAuthURL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLSDKAuthURL.h; sourceTree = "<group>"; };
+		6BA7298425061E970035E02F /* SLFaceDetectionResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLFaceDetectionResult.h; sourceTree = "<group>"; };
+		6BA7298525061E970035E02F /* SLSDKAuthProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLSDKAuthProvider.m; sourceTree = "<group>"; };
+		6BA7298625061E970035E02F /* SLFaceLandmark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLFaceLandmark.h; sourceTree = "<group>"; };
+		6BA7298725061E970035E02F /* NSDictionary+SLSDKAuth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+SLSDKAuth.m"; sourceTree = "<group>"; };
+		6BA7298825061E970035E02F /* SLFaceLandmarkDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLFaceLandmarkDefine.h; sourceTree = "<group>"; };
+		6BA7298925061E970035E02F /* SLFaceLandmarkConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLFaceLandmarkConfig.h; sourceTree = "<group>"; };
+		6BA7298A25061E970035E02F /* SLSDKAuthUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLSDKAuthUtils.h; sourceTree = "<group>"; };
+		6BA7298B25061E970035E02F /* SLSDKAuthDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLSDKAuthDefine.h; sourceTree = "<group>"; };
+		6BADD48D24F608C400752B23 /* SLSafeKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SLSafeKit.xcodeproj; path = SLSafeKit/SLSafeKit.xcodeproj; sourceTree = "<group>"; };
+		813F1C2FD12CF38E68D0CD46 /* Pods-SLFaceLandmarkDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SLFaceLandmarkDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SLFaceLandmarkDemo/Pods-SLFaceLandmarkDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		8A7F4DF726242CB06A4CF17A /* libPods-SLFaceLandmarkDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SLFaceLandmarkDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6B9765D124EE056900CDE0FB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6B8E4B4124EE0EE3003E6EC7 /* opencv2.framework in Frameworks */,
+				0A32FCD81C77727A880FDF76 /* libPods-SLFaceLandmarkDemo.a in Frameworks */,
+				6B0DB80A2501E5F9004DFD14 /* SLFaceLandmark.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3B78329106E2EEF8C444FCC7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				813F1C2FD12CF38E68D0CD46 /* Pods-SLFaceLandmarkDemo.debug.xcconfig */,
+				20CA21FA3C0657A78E5EE0E4 /* Pods-SLFaceLandmarkDemo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		68BF40AAB94038E8B2D89AC1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6B8E4B4624EE1E79003E6EC7 /* SLFaceLandmark.framework */,
+				8A7F4DF726242CB06A4CF17A /* libPods-SLFaceLandmarkDemo.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6B0DB81225024E0C004DFD14 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				6B0DB81425024E1A004DFD14 /* UIImage+HETARFace.h */,
+				6B0DB81325024E1A004DFD14 /* UIImage+HETARFace.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		6B5088B324F3865400D64877 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				6B5088C124F3879C00D64877 /* SSAnimationDelegate.h */,
+				6B5088C024F3879C00D64877 /* SSAnimationDelegate.m */,
+				6B5088BD24F3868400D64877 /* SSFaceObject.h */,
+				6B5088BE24F3868500D64877 /* SSFaceObject.m */,
+				6B5088BA24F3867800D64877 /* AVCaptureDevice+SSDevice.h */,
+				6B5088B724F3867700D64877 /* AVCaptureDevice+SSDevice.m */,
+				6B5088B924F3867800D64877 /* UIDevice+SSDevice.h */,
+				6B5088B824F3867800D64877 /* UIDevice+SSDevice.m */,
+				6B5088B524F3866D00D64877 /* SSCamera.h */,
+				6B5088B424F3866D00D64877 /* SSCamera.m */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		6B5088C424F3949900D64877 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6B5088C624F3949F00D64877 /* SSGLKView.h */,
+				6B5088C524F3949F00D64877 /* SSGLKView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		6B8E4B1624EE089E003E6EC7 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				6BA7297225061E970035E02F /* Objc */,
+				6B0DB81225024E0C004DFD14 /* Category */,
+				6B5088C424F3949900D64877 /* View */,
+				6B8E4B1924EE08BB003E6EC7 /* Video */,
+				6B8E4B1824EE08B1003E6EC7 /* Image */,
+				6B8E4B1724EE08A6003E6EC7 /* Base */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		6B8E4B1724EE08A6003E6EC7 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				6B8E4B1B24EE0951003E6EC7 /* SLNavigationController.h */,
+				6B8E4B1C24EE0951003E6EC7 /* SLNavigationController.m */,
+				6B8E4B1E24EE099D003E6EC7 /* SLCommonViewController.h */,
+				6B8E4B1F24EE099D003E6EC7 /* SLCommonViewController.m */,
+				6B8E4B2124EE09CF003E6EC7 /* SLTableViewController.h */,
+				6B8E4B2224EE09CF003E6EC7 /* SLTableViewController.m */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		6B8E4B1824EE08B1003E6EC7 /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				6B8E4B2424EE0C9C003E6EC7 /* SLImageDetectionViewController.h */,
+				6B8E4B2524EE0C9C003E6EC7 /* SLImageDetectionViewController.mm */,
+			);
+			path = Image;
+			sourceTree = "<group>";
+		};
+		6B8E4B1924EE08BB003E6EC7 /* Video */ = {
+			isa = PBXGroup;
+			children = (
+				6B8E4B2724EE0CAA003E6EC7 /* SLVideoBufferDetectionViewController.h */,
+				6B8E4B2824EE0CAA003E6EC7 /* SLVideoBufferDetectionViewController.mm */,
+			);
+			path = Video;
+			sourceTree = "<group>";
+		};
+		6B8E4B1A24EE08C7003E6EC7 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				6B9765D724EE056900CDE0FB /* AppDelegate.h */,
+				6B9765D824EE056900CDE0FB /* AppDelegate.m */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		6B8E4B2A24EE0DCB003E6EC7 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				6B0DB80F25023178004DFD14 /* 1FBD663F-A932-4168-8984-E94278B018BF.jpg */,
+				6B5679F124FCC9A200EE0008 /* rsa_private_key_pkcs8.pem */,
+				6B8BC68A24F8DA3F004C4BF0 /* rsa_public_key.pem */,
+				6B8E4B2B24EE0DD3003E6EC7 /* frame.jpg */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		6B8E4B2D24EE0EAD003E6EC7 /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+				6B8E4B3F24EE0EE3003E6EC7 /* opencv2.framework */,
+			);
+			path = Lib;
+			sourceTree = "<group>";
+		};
+		6B9765CB24EE056900CDE0FB = {
+			isa = PBXGroup;
+			children = (
+				6BADD48D24F608C400752B23 /* SLSafeKit.xcodeproj */,
+				6B9765D624EE056900CDE0FB /* SLFaceLandmarkDemo */,
+				6B9765D524EE056900CDE0FB /* Products */,
+				3B78329106E2EEF8C444FCC7 /* Pods */,
+				68BF40AAB94038E8B2D89AC1 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		6B9765D524EE056900CDE0FB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6B9765D424EE056900CDE0FB /* SLFaceLandmarkDemo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6B9765D624EE056900CDE0FB /* SLFaceLandmarkDemo */ = {
+			isa = PBXGroup;
+			children = (
+				6B5088B324F3865400D64877 /* Common */,
+				6B8E4B2D24EE0EAD003E6EC7 /* Lib */,
+				6B8E4B2A24EE0DCB003E6EC7 /* Resource */,
+				6B8E4B1A24EE08C7003E6EC7 /* AppDelegate */,
+				6B8E4B1624EE089E003E6EC7 /* ViewController */,
+				6B9765DD24EE056900CDE0FB /* ViewController.h */,
+				6B9765DE24EE056900CDE0FB /* ViewController.m */,
+				6B9765E024EE056900CDE0FB /* Main.storyboard */,
+				6B9765E324EE056B00CDE0FB /* Assets.xcassets */,
+				6B9765E524EE056B00CDE0FB /* LaunchScreen.storyboard */,
+				6B9765E824EE056B00CDE0FB /* Info.plist */,
+				6B9765E924EE056B00CDE0FB /* main.m */,
+			);
+			path = SLFaceLandmarkDemo;
+			sourceTree = "<group>";
+		};
+		6BA7297225061E970035E02F /* Objc */ = {
+			isa = PBXGroup;
+			children = (
+				6BA7297325061E970035E02F /* SLSDKJSONFile.m */,
+				6BA7297425061E970035E02F /* SLRSAProvider.h */,
+				6BA7297525061E970035E02F /* SLSDKAuthProvider.h */,
+				6BA7297625061E970035E02F /* SLFaceDetectionResult.m */,
+				6BA7297725061E970035E02F /* SLSDKAuthURL.m */,
+				6BA7297825061E970035E02F /* SLSDKAuthAPI.m */,
+				6BA7297925061E970035E02F /* SLFaceLandmarkConfig.m */,
+				6BA7297A25061E970035E02F /* SLFaceLandmarkDetector.h */,
+				6BA7297B25061E970035E02F /* NSDictionary+SLSDKAuth.h */,
+				6BA7297C25061E970035E02F /* SLFaceLandmark.m */,
+				6BA7297D25061E970035E02F /* SLSDKAuthDefine.m */,
+				6BA7297E25061E970035E02F /* SLSDKAuthUtils.m */,
+				6BA7297F25061E970035E02F /* SLRSAProvider.m */,
+				6BA7298025061E970035E02F /* SLSDKJSONFile.h */,
+				6BA7298125061E970035E02F /* SLFaceLandmarkDetector.mm */,
+				6BA7298225061E970035E02F /* SLSDKAuthAPI.h */,
+				6BA7298325061E970035E02F /* SLSDKAuthURL.h */,
+				6BA7298425061E970035E02F /* SLFaceDetectionResult.h */,
+				6BA7298525061E970035E02F /* SLSDKAuthProvider.m */,
+				6BA7298625061E970035E02F /* SLFaceLandmark.h */,
+				6BA7298725061E970035E02F /* NSDictionary+SLSDKAuth.m */,
+				6BA7298825061E970035E02F /* SLFaceLandmarkDefine.h */,
+				6BA7298925061E970035E02F /* SLFaceLandmarkConfig.h */,
+				6BA7298A25061E970035E02F /* SLSDKAuthUtils.h */,
+				6BA7298B25061E970035E02F /* SLSDKAuthDefine.h */,
+			);
+			name = Objc;
+			path = SLFaceLandmarkDemo/Objc;
+			sourceTree = SOURCE_ROOT;
+		};
+		6BC2D09524F64903007F3620 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6BC2D09924F64904007F3620 /* libSLSafeKit.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6B9765D324EE056900CDE0FB /* SLFaceLandmarkDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6B9765ED24EE056B00CDE0FB /* Build configuration list for PBXNativeTarget "SLFaceLandmarkDemo" */;
+			buildPhases = (
+				98D566BB943CBC5D64B5D0C9 /* [CP] Check Pods Manifest.lock */,
+				6B9765D024EE056900CDE0FB /* Sources */,
+				6B9765D124EE056900CDE0FB /* Frameworks */,
+				6B9765D224EE056900CDE0FB /* Resources */,
+				25CC85BEEE1FB8FB02378E41 /* [CP] Copy Pods Resources */,
+				6B0DB80C2501E5F9004DFD14 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SLFaceLandmarkDemo;
+			productName = SLFaceLandmarkDemo;
+			productReference = 6B9765D424EE056900CDE0FB /* SLFaceLandmarkDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6B9765CC24EE056900CDE0FB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1160;
+				ORGANIZATIONNAME = "马远征";
+				TargetAttributes = {
+					6B9765D324EE056900CDE0FB = {
+						CreatedOnToolsVersion = 11.6;
+					};
+				};
+			};
+			buildConfigurationList = 6B9765CF24EE056900CDE0FB /* Build configuration list for PBXProject "SLFaceLandmarkDemo" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 6B9765CB24EE056900CDE0FB;
+			productRefGroup = 6B9765D524EE056900CDE0FB /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 6BC2D09524F64903007F3620 /* Products */;
+					ProjectRef = 6BADD48D24F608C400752B23 /* SLSafeKit.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				6B9765D324EE056900CDE0FB /* SLFaceLandmarkDemo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		6BC2D09924F64904007F3620 /* libSLSafeKit.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libSLSafeKit.a;
+			remoteRef = 6BC2D09824F64904007F3620 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6B9765D224EE056900CDE0FB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6B9765E724EE056B00CDE0FB /* LaunchScreen.storyboard in Resources */,
+				6B8BC68B24F8DA3F004C4BF0 /* rsa_public_key.pem in Resources */,
+				6B9765E424EE056B00CDE0FB /* Assets.xcassets in Resources */,
+				6B9765E224EE056900CDE0FB /* Main.storyboard in Resources */,
+				6B0DB81125023178004DFD14 /* 1FBD663F-A932-4168-8984-E94278B018BF.jpg in Resources */,
+				6B8E4B2C24EE0DD3003E6EC7 /* frame.jpg in Resources */,
+				6B5679F324FCC9A200EE0008 /* rsa_private_key_pkcs8.pem in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		25CC85BEEE1FB8FB02378E41 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SLFaceLandmarkDemo/Pods-SLFaceLandmarkDemo-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SLFaceLandmarkDemo/Pods-SLFaceLandmarkDemo-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SLFaceLandmarkDemo/Pods-SLFaceLandmarkDemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		98D566BB943CBC5D64B5D0C9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SLFaceLandmarkDemo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6B9765D024EE056900CDE0FB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6B9765DF24EE056900CDE0FB /* ViewController.m in Sources */,
+				6B5088C224F3879C00D64877 /* SSAnimationDelegate.m in Sources */,
+				6BA7299725061E970035E02F /* SLSDKAuthProvider.m in Sources */,
+				6B9765D924EE056900CDE0FB /* AppDelegate.m in Sources */,
+				6BA7299125061E970035E02F /* SLFaceLandmarkConfig.m in Sources */,
+				6BA7299625061E970035E02F /* SLFaceLandmarkDetector.mm in Sources */,
+				6BA7299825061E970035E02F /* NSDictionary+SLSDKAuth.m in Sources */,
+				6B5088BB24F3867800D64877 /* AVCaptureDevice+SSDevice.m in Sources */,
+				6B8E4B2324EE09CF003E6EC7 /* SLTableViewController.m in Sources */,
+				6BA7298D25061E970035E02F /* SLSDKJSONFile.m in Sources */,
+				6B8E4B1D24EE0951003E6EC7 /* SLNavigationController.m in Sources */,
+				6BA7299325061E970035E02F /* SLSDKAuthDefine.m in Sources */,
+				6B0DB81525024E1A004DFD14 /* UIImage+HETARFace.m in Sources */,
+				6B5088B624F3866D00D64877 /* SSCamera.m in Sources */,
+				6BA7299425061E970035E02F /* SLSDKAuthUtils.m in Sources */,
+				6BA7298E25061E970035E02F /* SLFaceDetectionResult.m in Sources */,
+				6B8E4B2624EE0C9C003E6EC7 /* SLImageDetectionViewController.mm in Sources */,
+				6B8E4B2024EE099D003E6EC7 /* SLCommonViewController.m in Sources */,
+				6B5088C724F3949F00D64877 /* SSGLKView.m in Sources */,
+				6BA7298F25061E970035E02F /* SLSDKAuthURL.m in Sources */,
+				6B5088BF24F3868500D64877 /* SSFaceObject.m in Sources */,
+				6BA7299525061E970035E02F /* SLRSAProvider.m in Sources */,
+				6B9765EA24EE056B00CDE0FB /* main.m in Sources */,
+				6B5088BC24F3867800D64877 /* UIDevice+SSDevice.m in Sources */,
+				6BA7299225061E970035E02F /* SLFaceLandmark.m in Sources */,
+				6BA7299025061E970035E02F /* SLSDKAuthAPI.m in Sources */,
+				6B8E4B2924EE0CAA003E6EC7 /* SLVideoBufferDetectionViewController.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		6B9765E024EE056900CDE0FB /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6B9765E124EE056900CDE0FB /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		6B9765E524EE056B00CDE0FB /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6B9765E624EE056B00CDE0FB /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		6B9765EB24EE056B00CDE0FB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		6B9765EC24EE056B00CDE0FB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		6B9765EE24EE056B00CDE0FB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 813F1C2FD12CF38E68D0CD46 /* Pods-SLFaceLandmarkDemo.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 5;
+				DEVELOPMENT_TEAM = WU2WFZ2B66;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/SLFaceLandmarkDemo/Lib",
+				);
+				INFOPLIST_FILE = SLFaceLandmarkDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.slss.facelandmark;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		6B9765EF24EE056B00CDE0FB /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 20CA21FA3C0657A78E5EE0E4 /* Pods-SLFaceLandmarkDemo.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 5;
+				DEVELOPMENT_TEAM = WU2WFZ2B66;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/SLFaceLandmarkDemo/Lib",
+				);
+				INFOPLIST_FILE = SLFaceLandmarkDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.slss.facelandmark;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6B9765CF24EE056900CDE0FB /* Build configuration list for PBXProject "SLFaceLandmarkDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6B9765EB24EE056B00CDE0FB /* Debug */,
+				6B9765EC24EE056B00CDE0FB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6B9765ED24EE056B00CDE0FB /* Build configuration list for PBXNativeTarget "SLFaceLandmarkDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6B9765EE24EE056B00CDE0FB /* Debug */,
+				6B9765EF24EE056B00CDE0FB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6B9765CC24EE056900CDE0FB /* Project object */;
+}

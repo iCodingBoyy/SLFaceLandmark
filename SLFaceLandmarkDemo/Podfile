@@ -1,0 +1,33 @@
+workspace 'SLFaceLandmarkDemo.xcworkspace'
+
+source 'git@e.coding.net:clife-devops/public-repository/ios-clifeSpecs.git'
+source 'https://github.com/CocoaPods/Specs.git'
+#source 'https://gitee.com/mirrors/CocoaPods-Specs‘
+#source 'https://git.coding.net/CocoaPods/Specs.git'
+
+
+# Uncomment the next line to define a global platform for your project
+ platform :ios, '10.0'
+
+post_install do |installer|
+    installer.pods_project.targets.each do |target|
+        target.build_configurations.each do |config|
+            config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '10.0'
+            config.build_settings['CLANG_WARN_DOCUMENTATION_COMMENTS'] = 'NO'
+        end
+    end
+end
+
+target 'SLFaceLandmarkDemo' do
+project 'SLFaceLandmarkDemo.xcodeproj'
+    pod 'QMUIKit'
+    pod 'Masonry', '~> 1.1.0'
+    pod 'YYKit', '~> 1.0.9'
+    pod 'OpenSSL-Universal', '~> 1.0.2.20'
+end
+
+
+target 'SLSafeKit' do
+project 'SLSafeKit/SLSafeKit.xcodeproj'
+    pod 'OpenSSL-Universal', '~> 1.0.2.20'
+end
