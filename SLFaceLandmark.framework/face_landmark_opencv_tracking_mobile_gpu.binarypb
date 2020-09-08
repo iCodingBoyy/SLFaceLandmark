@@ -12,4 +12,4 @@ TFaceDetectionSubgraphGpuface_detection_input_video"DETECTIONS:output_detec
 ¡FaceLandmarkSubgraphGpuIMAGE:throttled_input_videoDETECTIONS:tracked_detections"*NORM_RECT:face_rect_from_output_detections"LANDMARKS:fixed_face_landmarks
 nPreviousLoopbackCalculatorMAIN:throttled_input_videoLOOP:track_flag"PREV_LOOP:loop_track_flagj
 LOOP
-RMergeCalculatorempty_face_landmarksfixed_face_landmarks"last_face_landmarksRinput_videozlast_face_landmarks
+RMergeCalculatorempty_face_landmarksfixed_face_landmarks"last_face_landmarksRinput_videozlast_face_landmarksztracked_detections

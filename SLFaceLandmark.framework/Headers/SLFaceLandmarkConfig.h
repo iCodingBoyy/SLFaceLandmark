@@ -14,8 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 typedef struct {
     int32_t left;              ///< 矩形框最左边的坐标值
     int32_t top;               ///< 矩形框最上边的坐标值
-    int32_t right;             ///< 矩形框最右边的坐标值
-    int32_t bottom;            ///< 矩形框最下边的坐标值
+    int32_t width;             ///< 矩形框最右边的坐标值
+    int32_t height;            ///< 矩形框最下边的坐标值
 } SLRectangle;
 
 
