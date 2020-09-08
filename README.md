@@ -13,7 +13,7 @@
 
 下图静态图片人脸关键点展示，动态视频帧可运行demo看效果
 
-![静态人脸图片关键点](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/31a56519df2e4705aeb237791cfc8e47~tplv-k3u1fbpfcp-zoom-1.image)
+![静态人脸图片关键点](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f63b073473494171848c59d93fb3f394~tplv-k3u1fbpfcp-zoom-1.image)
 
 
 
