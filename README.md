@@ -144,5 +144,3 @@ pod 'OpenSSL-Universal', '~> 1.0.2.20'
    [_flDetector close];
 ```
 
-### 四、备注
-目前`SDK`暂不支持输出人脸框，仅支持`SLFaceDetectionModeImage`和`SLFaceDetectionModeVideoTracking`关键点检测模式，后续会补充人脸框输出和单独的人脸框检测功能。
