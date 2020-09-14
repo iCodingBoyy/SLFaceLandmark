@@ -40,10 +40,12 @@ typedef NS_ENUM(NSInteger, SLErrorCode) {
     SLErrorCodeNoError,
     SLErrorCodeInvalidArguments,        ///< 无效的参数
     SLErrorCodeInvalidModelFile,        ///< 无效的模型文件
-    SLErrorCodeInvalidAuthorization,    ///< 无效的授权信息
     SLErrorCodeInitializeGraphFailed,   ///< 初始化模型文件失败
     SLErrorCodeUnsupportedVideoFormat,   ///< 不支持的视频格式
     SLErrorCodeUnsupportedDetectionMode, ///< 不支持的检测模式
+    SLErrorCodeSDKVerifyFailed,           ///< SDK验证失败
+    SLErrorCodeSDKUnAuthorized,            ///< SDK未授权
+    SLErrorCodeSDKAuthorizationExpired,    ///< SDK授权过期
     SLErrorCodeDetectionFailed,          ///< 检测失败
     SLErrorCodeInvalidFacelandmarksData, ///< 无效的特征点数据
     

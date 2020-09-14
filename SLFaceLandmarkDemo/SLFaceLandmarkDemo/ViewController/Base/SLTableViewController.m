@@ -8,10 +8,10 @@
 
 #import "SLTableViewController.h"
 #import <QMUIKit/QMUIKit.h>
-#import <SLFaceLandmark/SLFaceLandmark.h>
-#import <SLFaceLandmark/SLFaceLandmarkDetector.h>
-//#import "SLFaceLandmark.h"
-//#import "SLFaceLandmarkDetector.h"
+//#import <SLFaceLandmark/SLFaceLandmark.h>
+//#import <SLFaceLandmark/SLFaceLandmarkDetector.h>
+#import "SLFaceLandmark.h"
+#import "SLFaceLandmarkDetector.h"
 
 
 @interface SLTableViewController ()  <QMUINavigationControllerDelegate>

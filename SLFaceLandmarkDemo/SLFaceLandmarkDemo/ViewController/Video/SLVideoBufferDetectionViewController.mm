@@ -6,9 +6,11 @@
 //  Copyright © 2020 马远征. All rights reserved.
 //
 
+#import <opencv2/imgproc.hpp>
 #import <opencv2/opencv.hpp>
 #import <opencv2/imgcodecs/ios.h>
 #import <opencv2/videoio/cap_ios.h>
+
 #import "SLVideoBufferDetectionViewController.h"
 #import <YYKit/YYKit.h>
 #import <Masonry/Masonry.h>
@@ -17,13 +19,27 @@
 #import <CoreMedia/CoreMedia.h>
 #import "SSGLKView.h"
 #import "AVCaptureDevice+SSDevice.h"
-#import <SLFaceLandmark/SLFaceLandmarkDetector.h>
-//#import "SLFaceLandmarkDetector.h"
+//#import <SLFaceLandmark/SLFaceLandmarkDetector.h>
+#import "SLFaceLandmarkDetector.h"
+
+
+dispatch_queue_t SSBufferFaceDetectQueue(void) {
+    static dispatch_queue_t facedetectQueue;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        NSString *name = [NSString stringWithFormat:@"com.SkinAnalysis.facedetectQueue-%@", [[NSUUID UUID] UUIDString]];
+        facedetectQueue = dispatch_queue_create([name cStringUsingEncoding:NSASCIIStringEncoding], DISPATCH_QUEUE_SERIAL);
+    });
+    return facedetectQueue;
+}
 
 @interface SLVideoBufferDetectionViewController ()
 @property (nonatomic, strong) SSCamera *camera;
 @property (nonatomic, strong) SLFaceLandmarkDetector *flDetector;
 @property (nonatomic, strong) SSGLKView *glkView;
+@property (nonatomic, assign) BOOL detectorIsBusy;
+@property (nonatomic, strong) NSLock *bufferHandleLock;
+@property (nonatomic, strong) UIView *focusView;
 @end
 
 @implementation SLVideoBufferDetectionViewController
@@ -79,7 +95,46 @@
         make.top.equalTo(self.mas_topLayoutGuide);
         make.left.right.bottom.equalTo(self.view);
     }];
+    
+    _focusView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 80, 80)];
+    _focusView.backgroundColor = [UIColor clearColor];
+    _focusView.layer.borderColor = [UIColor qmui_colorWithHexString:@"#FF4275"].CGColor;
+    _focusView.layer.borderWidth = 1.0;
+    _focusView.hidden = YES;
+    [self.view addSubview:_focusView];
+    
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(focusGesture:)];
+    [self.glkView addGestureRecognizer:tapGesture];
+    
+    _bufferHandleLock = [[NSLock alloc]init];
     [self prepareCamera];
+}
+
+- (void)focusGesture:(UITapGestureRecognizer*)gesture{
+    CGPoint point = [gesture locationInView:gesture.view];
+    _focusView.center = point;
+    _focusView.hidden = NO;
+    [UIView animateWithDuration:0.3 animations:^{
+        self.focusView.transform = CGAffineTransformMakeScale(1.25, 1.25);
+    }completion:^(BOOL finished) {
+        [UIView animateWithDuration:0.5 animations:^{
+            self.focusView.transform = CGAffineTransformIdentity;
+        } completion:^(BOOL finished) {
+           self.focusView.hidden = YES;
+        }];
+    }];
+    
+    CGSize size = self.glkView.bounds.size;
+    if (![self.camera isCameraPositionBack]) point.x = size.width - point.x;
+    CGPoint focusPoint = CGPointMake( point.y /size.height ,1-point.x/size.width );
+    [self.camera focusAndExposureAtPoint:focusPoint];
+    
+}
+
+- (void)setDetectorIsBusy:(BOOL)detectorIsBusy {
+    [_bufferHandleLock lock];
+    _detectorIsBusy = detectorIsBusy;
+    [_bufferHandleLock unlock];
 }
 
 - (void)requestAccessCamera {
@@ -104,6 +159,30 @@
     }
 }
 
+- (void)showSDKNoAuthAlertCotroller:(NSString*)message {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"提示" message:message preferredStyle:UIAlertControllerStyleAlert];
+    [alertController addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self.navigationController popViewControllerAnimated:YES];
+    }]];
+    [self.navigationController presentViewController:alertController animated:YES completion:nil];
+}
+
+- (BOOL)showSDKAuthResult:(NSError*)error {
+    if (error && error.code == SLErrorCodeSDKVerifyFailed) {
+        [self showSDKNoAuthAlertCotroller:@"SDK授权验证失败"];
+        return YES;
+    }
+    if (error && error.code == SLErrorCodeSDKUnAuthorized) {
+        [self showSDKNoAuthAlertCotroller:@"SDK未授权"];
+        return YES;
+    }
+    if (error && error.code == SLErrorCodeSDKAuthorizationExpired) {
+        [self showSDKNoAuthAlertCotroller:@"SDK授权过期"];
+        return YES;
+    }
+    return NO;
+}
+
 - (void)prepareCamera {
     if (self.camera) {
         [self.camera startRunning];
@@ -115,13 +194,8 @@
     BOOL ret = [_camera prepareCamera:position error:&error];
     if (!ret) {
         NSLog(@"--相机初始化错误--%@",error);
-        @weakify(self);
-        QMUIAlertController *alertController = [QMUIAlertController alertControllerWithTitle:@"提示" message:@"调用相机出错，请返回重试" preferredStyle:QMUIAlertControllerStyleAlert];
-        [alertController addAction:[QMUIAlertAction actionWithTitle:@"确定" style:QMUIAlertActionStyleDefault handler:^(__kindof QMUIAlertController * _Nonnull aAlertController, QMUIAlertAction * _Nonnull action) {
-            @strongify(self);
-            [self.navigationController popViewControllerAnimated:YES];
-        }]];
-        [alertController showWithAnimated:YES];
+//        @weakify(self);
+        [self showSDKNoAuthAlertCotroller:@"调用相机出错，请返回重试"];
         return;
     }
     
@@ -135,11 +209,7 @@
     ret = [_flDetector prepareGraphInBundle:bundle error:&error];
     if (!ret) {
         NSLog(@"--检测器模型初始化失败--%@",error);
-        QMUIAlertController *alertController = [QMUIAlertController alertControllerWithTitle:@"提示" message:@"检测器模型初始化失败，请返回重试" preferredStyle:QMUIAlertControllerStyleAlert];
-        [alertController addAction:[QMUIAlertAction actionWithTitle:@"确定" style:QMUIAlertActionStyleDefault handler:^(__kindof QMUIAlertController * _Nonnull aAlertController, QMUIAlertAction * _Nonnull action) {
-            [self.navigationController popViewControllerAnimated:YES];
-        }]];
-        [alertController showWithAnimated:YES];
+        [self showSDKNoAuthAlertCotroller:@"检测器模型初始化失败，请返回重试"];
         return;
     }
     SLFaceLandmarkConfig *config = [[SLFaceLandmarkConfig alloc]init];
@@ -147,20 +217,10 @@
     config.detectionMode = SLFaceDetectionModeVideoTracking;
     ret = [_flDetector openWithConfig:config error:&error];
     if (!ret) {
-        NSLog(@"--检测器打开失败--%@",error);
-        if (error.code == SLErrorCodeInvalidAuthorization) {
-            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"提示" message:@"SDK未授权，请前往平台授权处理" preferredStyle:UIAlertControllerStyleAlert];
-            [alertController addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                [self.navigationController popViewControllerAnimated:YES];
-            }]];
-            [self.navigationController presentViewController:alertController animated:YES completion:nil];
-        }
-        else {
-            QMUIAlertController *alertController = [QMUIAlertController alertControllerWithTitle:@"提示" message:@"检测器打开失败，请返回重试" preferredStyle:QMUIAlertControllerStyleAlert];
-            [alertController addAction:[QMUIAlertAction actionWithTitle:@"确定" style:QMUIAlertActionStyleDefault handler:^(__kindof QMUIAlertController * _Nonnull aAlertController, QMUIAlertAction * _Nonnull action) {
-                [self.navigationController popViewControllerAnimated:YES];
-            }]];
-            [alertController showWithAnimated:YES];
+        
+        if (![self showSDKAuthResult:error]) {
+            NSLog(@"--检测器打开失败--%@",error);
+            [self showSDKNoAuthAlertCotroller:@"检测器打开失败，请返回重试"];
         }
         return;
     }
@@ -168,133 +228,145 @@
     @weakify(self);
     [self.camera setDidOutputSampleBufferBlock:^(AVCaptureOutput *output, CMSampleBufferRef sampleBuffer, NSArray<SSFaceObject*>*faceInfoArray, AVCaptureConnection *connection) {
         @strongify(self);
-//        [self handleOutputSampleBuffer:sampleBuffer faces:faceInfoArray];
         CVPixelBufferRef pixelBuffer = (CVPixelBufferRef)CMSampleBufferGetImageBuffer(sampleBuffer);
-        CVPixelBufferLockBaseAddress(pixelBuffer, 0);
-        CIImage *ciImage = [CIImage imageWithCVImageBuffer:pixelBuffer];
-//        SSDispatchAsyncMain(^{
-//            [self.glkView renderCIImage:ciImage];
-//        });
-//        return;
-        OSType pixelType = CVPixelBufferGetPixelFormatType(pixelBuffer);
-        int type = CV_8UC4;
-        int code = CV_RGB2RGBA;
-        switch (pixelType) {
-            case kCVPixelFormatType_24RGB: {
-                    type = CV_8UC3;
-                    code = CV_RGB2RGBA;
-                }
-                break;
-            case kCVPixelFormatType_24BGR: {
+        [self detectFaceLandmarkInPixelBuffer:pixelBuffer];
+    }];            
+    [self.camera startRunningSynchronously];
+}
+
+
+- (void)detectFaceLandmarkInPixelBuffer:(CVPixelBufferRef)pixelBuffer {
+    
+    CVPixelBufferLockBaseAddress(pixelBuffer, 0);
+    CIImage *ciImage = [CIImage imageWithCVImageBuffer:pixelBuffer];
+    OSType pixelType = CVPixelBufferGetPixelFormatType(pixelBuffer);
+    int type = CV_8UC4;
+    int code = CV_RGB2RGBA;
+    switch (pixelType) {
+        case kCVPixelFormatType_24RGB: {
                 type = CV_8UC3;
-                code = CV_BGR2RGBA;
+                code = CV_RGB2RGBA;
             }
             break;
-            case kCVPixelFormatType_32BGRA: {
-                type = CV_8UC4;
-                code = CV_BGR2RGBA;
-            }
-            break;
-            case kCVPixelFormatType_32RGBA: {
-                type = CV_8UC4;
-                code = -1;
-            }
-            break;
-            default: {
-                type = CV_8UC1;
-                code = CV_GRAY2RGBA;
-            }
-                break;
+        case kCVPixelFormatType_24BGR: {
+            type = CV_8UC3;
+            code = CV_BGR2RGBA;
         }
+        break;
+        case kCVPixelFormatType_32BGRA: {
+            type = CV_8UC4;
+            code = CV_BGR2RGBA;
+        }
+        break;
+        case kCVPixelFormatType_32RGBA: {
+            type = CV_8UC4;
+            code = -1;
+        }
+        break;
+        default: {
+            type = CV_8UC1;
+            code = CV_GRAY2RGBA;
+        }
+            break;
+    }
+    
+    cv::Mat inputMat;
+    cv::Size size;
+    if (pixelType == kCVPixelFormatType_420YpCbCr8BiPlanarFullRange ||
+        pixelType == kCVPixelFormatType_420YpCbCr8BiPlanarVideoRange ||
+        pixelType == kCVPixelFormatType_420YpCbCr8Planar ||
+        pixelType == kCVPixelFormatType_420YpCbCr10BiPlanarVideoRange ||
+        pixelType == kCVPixelFormatType_420YpCbCr10BiPlanarFullRange) {
         
-        cv::Mat inputMat;
-        cv::Size size;
-        if (pixelType == kCVPixelFormatType_420YpCbCr8BiPlanarFullRange ||
-            pixelType == kCVPixelFormatType_420YpCbCr8BiPlanarVideoRange ||
-            pixelType == kCVPixelFormatType_420YpCbCr8Planar ||
-            pixelType == kCVPixelFormatType_420YpCbCr10BiPlanarVideoRange ||
-            pixelType == kCVPixelFormatType_420YpCbCr10BiPlanarFullRange) {
-            
-            UInt8 *baseAddress = (UInt8*)CVPixelBufferGetBaseAddressOfPlane(pixelBuffer,0);
-            int pixelWidth = (int)CVPixelBufferGetWidthOfPlane(pixelBuffer,0);
-            int pixelHeight = (int)CVPixelBufferGetHeightOfPlane(pixelBuffer,0);
-            int bytesPerRow = (int)CVPixelBufferGetBytesPerRowOfPlane(pixelBuffer,0);
-            cv::Size size = cv::Size(pixelWidth, pixelHeight);
-            inputMat = cv::Mat(size, CV_8UC1, baseAddress,bytesPerRow);
-        }
-        else {
-            UInt8 *baseAddress = (UInt8*)CVPixelBufferGetBaseAddress(pixelBuffer);
-            int pixelWidth = (int)CVPixelBufferGetWidth(pixelBuffer);
-            int pixelHeight = (int)CVPixelBufferGetHeight(pixelBuffer);
-            int bytesPerRow = (int)CVPixelBufferGetBytesPerRow(pixelBuffer);
-            cv::Size size = cv::Size(pixelWidth, pixelHeight);
-            inputMat = cv::Mat(size, type, baseAddress,bytesPerRow);
-        }
-        CVPixelBufferUnlockBaseAddress(pixelBuffer,0);
-//        SSDispatchAsyncMain(^{
-//            [self.glkView renderCIImage:ciImage];
-//        });
-//        return;
-        if (inputMat.empty()) {
-            NSLog(@"--矩阵为空--");
-            cv::transpose(inputMat, inputMat);
-            cv::flip(inputMat, inputMat, 1);
+        UInt8 *baseAddress = (UInt8*)CVPixelBufferGetBaseAddressOfPlane(pixelBuffer,0);
+        int pixelWidth = (int)CVPixelBufferGetWidthOfPlane(pixelBuffer,0);
+        int pixelHeight = (int)CVPixelBufferGetHeightOfPlane(pixelBuffer,0);
+        int bytesPerRow = (int)CVPixelBufferGetBytesPerRowOfPlane(pixelBuffer,0);
+        cv::Size size = cv::Size(pixelWidth, pixelHeight);
+        inputMat = cv::Mat(size, CV_8UC1, baseAddress,bytesPerRow);
+    }
+    else {
+        UInt8 *baseAddress = (UInt8*)CVPixelBufferGetBaseAddress(pixelBuffer);
+        int pixelWidth = (int)CVPixelBufferGetWidth(pixelBuffer);
+        int pixelHeight = (int)CVPixelBufferGetHeight(pixelBuffer);
+        int bytesPerRow = (int)CVPixelBufferGetBytesPerRow(pixelBuffer);
+        cv::Size size = cv::Size(pixelWidth, pixelHeight);
+        inputMat = cv::Mat(size, type, baseAddress,bytesPerRow);
+    }
+    CVPixelBufferUnlockBaseAddress(pixelBuffer,0);
+    if (inputMat.empty()) {
+        NSLog(@"--矩阵为空--");
+        cv::transpose(inputMat, inputMat);
+        cv::flip(inputMat, inputMat, 1);
+        SSDispatchAsyncMain(^{
+            [self.glkView renderCIImage:ciImage];
+        });
+        return;
+    }
+//        NSLog(@"输入线程:%@",[NSThread currentThread]);
+//        NSLog(@"输入线程Symbols:%@",[NSThread callStackSymbols]);
+//        usleep(100);
+    
+     CFAbsoluteTime startTime =CFAbsoluteTimeGetCurrent();
+//    [NSThread sleepForTimeInterval:3.13];
+    [self.flDetector detectWithVideoBuffer:pixelBuffer result:^(SLFaceDetectionResult * _Nullable result, NSError * _Nullable error) {
+        //在这写入要计算时间的代码
+        CFAbsoluteTime linkTime = (CFAbsoluteTimeGetCurrent() - startTime);
+        NSLog(@"单帧人脸识别时间 %f ms", linkTime *1000.0);
+        
+//            NSLog(@"输出线程:%@",[NSThread currentThread]);
+//            NSLog(@"输出线程Symbols:%@",[NSThread callStackSymbols]);
+        if (error) {
+            // 如果未授权，相机运行可能导致多次回调，需要注意重复弹框
+            if (![self showSDKAuthResult:error]) {
+                NSLog(@"--关键点检测错误--%@",error);
+            }
             SSDispatchAsyncMain(^{
                 [self.glkView renderCIImage:ciImage];
             });
             return;
         }
-        
-        [self.flDetector detectWithVideoBuffer:pixelBuffer result:^(SLFaceDetectionResult * _Nullable result, NSError * _Nullable error) {
-            if (error) {
-                // 如果未授权，相机运行可能导致多次回调，需要注意重复弹框
-                if (error.code == SLErrorCodeInvalidAuthorization) {
-                     [self.camera stopRunning];
-                    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"提示" message:@"SDK未授权，请前往平台授权处理" preferredStyle:UIAlertControllerStyleAlert];
-                    [alertController addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                        [self.navigationController popViewControllerAnimated:YES];
-                    }]];
-                    [self.navigationController presentViewController:alertController animated:YES completion:nil];
-                }
-                else {
-                    NSLog(@"--关键点检测错误--%@",error);
-                }
-                SSDispatchAsyncMain(^{
-                    [self.glkView renderCIImage:ciImage];
-                });
-                return;
-            }
-            NSLog(@"--检测到关键点--%@",result);
-            for (SLFace *face in result.faces) {
-                for (NSValue *value in face.landmarks) {
-                    CGPoint point = [value CGPointValue];
-                    cv::Point cvPoint(point.x, point.y);
-                    cv::circle(inputMat, cvPoint, 2, cv::Scalar(255,255,255,255),5);
-                }
-            }
+//            NSLog(@"--检测到关键点--[%@]%@",@([NSThread isMainThread]),result);
+        CFAbsoluteTime drawTime =CFAbsoluteTimeGetCurrent();
+        for (SLFace *face in result.faces) {
             
-            UIImage *image;
-            if (code != -1) {
-                cv::Mat rgbaMat;
-                cv::cvtColor(inputMat, rgbaMat, code);
+            CGRect rect = face.faceRect;
+            CGFloat x = rect.origin.x;  CGFloat y = rect.origin.y;
+            CGFloat width = rect.size.width;  CGFloat height = rect.size.height;
+            cv::Point cvPoint1(x , y); cv::Point cvPoint2(x+width, y+height);
+            cv::rectangle(inputMat, cvPoint1, cvPoint2, cv::Scalar(255,255,255,255),3);
+            
+            for (NSValue *value in face.landmarks) {
+                CGPoint point = [value CGPointValue];
+                cv::Point cvPoint(point.x, point.y);
+                cv::circle(inputMat, cvPoint, 2, cv::Scalar(255,255,255,255),3);
+            }
+        }
+        
+        UIImage *image;
+        if (code != -1) {
+            cv::Mat rgbaMat;
+            cv::cvtColor(inputMat, rgbaMat, code);
 //                cv::transpose(rgbaMat, rgbaMat);
 //                cv::flip(rgbaMat, rgbaMat, 1);
-                image =  MatToUIImage(rgbaMat);
-            }
-            else {
+            image =  MatToUIImage(rgbaMat);
+        }
+        else {
 //                cv::transpose(inputMat, inputMat);
 //                cv::flip(inputMat, inputMat, 1);
-                image =  MatToUIImage(inputMat);
-            }
-            CIImage *ciImage = [[CIImage alloc]initWithImage:image];
-            SSDispatchAsyncMain(^{
-                [self.glkView renderCIImage:ciImage];
-            });
-        }];
+            image =  MatToUIImage(inputMat);
+        }
+        CIImage *ciImage = [[CIImage alloc]initWithImage:image];
+        linkTime = (CFAbsoluteTimeGetCurrent() - drawTime);
+        NSLog(@"人脸框和关键点绘制时间 %f ms", linkTime *1000.0);
+        SSDispatchAsyncMain(^{
+            CFAbsoluteTime renderTime =CFAbsoluteTimeGetCurrent();
+            [self.glkView renderCIImage:ciImage];
+            CFAbsoluteTime renderlinkTime = (CFAbsoluteTimeGetCurrent() - renderTime);
+            NSLog(@"人脸框和关键点渲染 %f ms", renderlinkTime *1000.0);
+        });
     }];
-    [self.camera startRunningSynchronously];
 }
-
 
 - (cv::Mat)cvMatFromUIImage:(UIImage *)image{
     BOOL hasAlpha = NO;

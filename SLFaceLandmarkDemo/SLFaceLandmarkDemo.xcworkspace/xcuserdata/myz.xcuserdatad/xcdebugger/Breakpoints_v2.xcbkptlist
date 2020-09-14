@@ -103,16 +103,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "C6CE15A4-E25B-487E-BBDE-6F41ABCF267B"
-            shouldBeEnabled = "No"
+            uuid = "C25179F3-1E68-47A5-B13B-5843659D4F64"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SLFaceLandmarkDemo/Common/SSCamera.m"
+            filePath = "SLFaceLandmarkDemo/ViewController/Video/SLVideoBufferDetectionViewController.mm"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "119"
-            endingLineNumber = "119"
-            landmarkName = "-prepareCamera:error:"
+            startingLineNumber = "222"
+            endingLineNumber = "222"
+            landmarkName = "-prepareCamera"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

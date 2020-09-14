@@ -115,8 +115,8 @@ static NSString *SSCaptureDeviceErrorDomain = @"SSCaptureDeviceErrorDomain";
         return NO;
     }
     // 设置照片输出 AVCaptureSessionPresetHigh AVCaptureSessionPreset1280x720 AVCaptureSessionPreset1920x1080 AVCaptureSessionPresetPhoto
-    if ([self.captureSession canSetSessionPreset:AVCaptureSessionPresetHigh]) {
-        [self.captureSession setSessionPreset:AVCaptureSessionPresetHigh];
+    if ([self.captureSession canSetSessionPreset:AVCaptureSessionPreset1280x720]) {
+        [self.captureSession setSessionPreset:AVCaptureSessionPreset1280x720];
     }
     else {
         [self.captureSession commitConfiguration];
@@ -131,6 +131,21 @@ static NSString *SSCaptureDeviceErrorDomain = @"SSCaptureDeviceErrorDomain";
     else {
         [self.captureSession commitConfiguration];
         return NO;
+    }
+    float rate = _captureDevice.position == 1 ? 20 : 30;
+
+    if ([_captureDevice respondsToSelector:@selector(activeVideoMinFrameDuration)]) {
+        [_captureDevice lockForConfiguration:nil];
+        _captureDevice.activeVideoMinFrameDuration = CMTimeMake(1, rate);
+        _captureDevice.activeVideoMaxFrameDuration = CMTimeMake(1, rate);
+        [_captureDevice unlockForConfiguration];
+    }
+    else {
+        AVCaptureConnection *conn = [[_captureSession.outputs lastObject] connectionWithMediaType:AVMediaTypeVideo];
+        if (conn.supportsVideoMinFrameDuration)
+            conn.videoMinFrameDuration = CMTimeMake(1,rate);
+        if (conn.supportsVideoMaxFrameDuration)
+            conn.videoMaxFrameDuration = CMTimeMake(1,rate);
     }
     [self refreshVideoConnection];
     [_metaout setMetadataObjectTypes:@[AVMetadataObjectTypeFace]];
@@ -193,6 +208,7 @@ static NSString *SSCaptureDeviceErrorDomain = @"SSCaptureDeviceErrorDomain";
 - (void)startRunning {
     dispatch_async(SSSkinAnalysisSerialQueue(), ^{
         [self.captureSession startRunning];
+        [self focusAndExposureAtPoint:CGPointMake(0.5, 0.5)];
     });
 }
 
@@ -239,6 +255,30 @@ static NSString *SSCaptureDeviceErrorDomain = @"SSCaptureDeviceErrorDomain";
     }
     if (_didOutputSampleBufferBlock) {
         _didOutputSampleBufferBlock(output, sampleBuffer, faceInfoArray, connection);
+    }
+}
+
+#pragma mark - 对焦与曝光
+
+- (void)focusAndExposureAtPoint:(CGPoint)focusPoint {
+    NSError *error;
+    if ([self.captureDevice lockForConfiguration:&error]) {
+        if ([self.captureDevice isFocusModeSupported:AVCaptureFocusModeAutoFocus]) {
+            [self.captureDevice setFocusMode:AVCaptureFocusModeAutoFocus];
+            if ([self.captureDevice isFocusPointOfInterestSupported]) {
+                [self.captureDevice setFocusPointOfInterest:focusPoint];
+            }
+        }
+        if ([self.captureDevice isExposureModeSupported:AVCaptureExposureModeAutoExpose ]) {
+            if ([self.captureDevice isExposurePointOfInterestSupported]) {
+                [self.captureDevice setExposurePointOfInterest:focusPoint];
+            }
+            [self.captureDevice setExposureMode:AVCaptureExposureModeAutoExpose];
+        }
+        [self.captureDevice unlockForConfiguration];
+    }
+    else {
+        NSLog(@"--lockForConfiguration---%@",error);
     }
 }
 

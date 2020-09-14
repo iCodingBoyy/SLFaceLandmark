@@ -24,6 +24,7 @@
 
 - (void)clear;
 
+- (void)focusAndExposureAtPoint:(CGPoint)focusPoint;
 
 #pragma mark - running
 

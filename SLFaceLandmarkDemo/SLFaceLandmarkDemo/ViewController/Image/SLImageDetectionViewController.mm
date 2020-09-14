@@ -11,8 +11,8 @@
 #import <opencv2/videoio/cap_ios.h>
 #import "SLImageDetectionViewController.h"
 #import <Masonry/Masonry.h>
-#import <SLFaceLandmark/SLFaceLandmarkDetector.h>
-//#import "SLFaceLandmarkDetector.h"
+//#import <SLFaceLandmark/SLFaceLandmarkDetector.h>
+#import "SLFaceLandmarkDetector.h"
 #import "SLNavigationController.h"
 #import "UIImage+HETARFace.h"
 
@@ -38,12 +38,28 @@ UIImagePickerControllerDelegate>
     [self prepareFLDetector];
 }
 
-- (void)showSDKNoAuthAlertCotroller {
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"提示" message:@"SDK未授权，请前往平台授权处理" preferredStyle:UIAlertControllerStyleAlert];
+- (void)showSDKNoAuthAlertCotroller:(NSString*)message {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"提示" message:message preferredStyle:UIAlertControllerStyleAlert];
     [alertController addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         [self.navigationController popViewControllerAnimated:YES];
     }]];
     [self.navigationController presentViewController:alertController animated:YES completion:nil];
+}
+
+- (BOOL)showSDKAuthResult:(NSError*)error {
+    if (error && error.code == SLErrorCodeSDKVerifyFailed) {
+        [self showSDKNoAuthAlertCotroller:@"SDK授权验证失败"];
+        return YES;
+    }
+    if (error && error.code == SLErrorCodeSDKUnAuthorized) {
+        [self showSDKNoAuthAlertCotroller:@"SDK未授权"];
+        return YES;
+    }
+    if (error && error.code == SLErrorCodeSDKAuthorizationExpired) {
+        [self showSDKNoAuthAlertCotroller:@"SDK授权过期"];
+        return YES;
+    }
+    return NO;
 }
 
 - (void)prepareFLDetector {
@@ -60,20 +76,14 @@ UIImagePickerControllerDelegate>
     config.detectionMode = SLFaceDetectionModeImage;
     ret = [_flDetector openWithConfig:config error:&error];
     if (!ret) {
-        if (error.code == SLErrorCodeInvalidAuthorization) {
-            [self showSDKNoAuthAlertCotroller];
-        }
-        else {
+        if (![self showSDKAuthResult:error]) {
             NSLog(@"--检测器打开失败--%@",error);
         }
         return;
     }
     [_flDetector detectWithFaceImage:self.imageView.image result:^(SLFaceDetectionResult * _Nullable result, NSError * _Nullable error) {
         if (error) {
-            if (error.code == SLErrorCodeInvalidAuthorization) {
-                [self showSDKNoAuthAlertCotroller];
-            }
-            else {
+            if (![self showSDKAuthResult:error]) {
                 NSLog(@"--关键点检测错误--%@",error);
             }
             return;
@@ -88,6 +98,11 @@ UIImagePickerControllerDelegate>
                 cv::Point cvPoint(point.x, point.y);
                 cv::circle(imageMat, cvPoint, 2, cv::Scalar(255,255,255,255),5);
             }
+            cv::Rect rect(face.faceRect.origin.x,
+                          face.faceRect.origin.y,
+                          face.faceRect.size.width,
+                          face.faceRect.size.height);
+            cv::rectangle(imageMat, rect, cv::Scalar(255,255,255,255),5);
         }
         UIImage *image =  MatToUIImage(imageMat);
         self.imageView.image = image;
@@ -97,10 +112,7 @@ UIImagePickerControllerDelegate>
 - (void)detectFaceLandmarkFromImage:(UIImage*)image {
     [_flDetector detectWithFaceImage:image result:^(SLFaceDetectionResult * _Nullable result, NSError * _Nullable error) {
         if (error) {
-            if (error.code == SLErrorCodeInvalidAuthorization) {
-                [self showSDKNoAuthAlertCotroller];
-            }
-            else {
+            if (![self showSDKAuthResult:error]) {
                 NSLog(@"--关键点检测错误--%@",error);
             }
             return;
@@ -115,7 +127,13 @@ UIImagePickerControllerDelegate>
                 cv::Point cvPoint(point.x, point.y);
                 cv::circle(imageMat, cvPoint, 2, cv::Scalar(255,255,255,255),5);
             }
+            cv::Rect rect(face.faceRect.origin.x,
+                          face.faceRect.origin.y,
+                          face.faceRect.size.width,
+                          face.faceRect.size.height);
+            cv::rectangle(imageMat, rect, cv::Scalar(255,255,255,255),5);
         }
+        
         UIImage *image =  MatToUIImage(imageMat);
         self.imageView.image = image;
     }];
