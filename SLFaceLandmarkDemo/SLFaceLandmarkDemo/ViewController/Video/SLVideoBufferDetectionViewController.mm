@@ -19,8 +19,8 @@
 #import <CoreMedia/CoreMedia.h>
 #import "SSGLKView.h"
 #import "AVCaptureDevice+SSDevice.h"
-//#import <SLFaceLandmark/SLFaceLandmarkDetector.h>
-#import "SLFaceLandmarkDetector.h"
+#import <SLFaceLandmark/SLFaceLandmarkDetector.h>
+//#import "SLFaceLandmarkDetector.h"
 
 
 dispatch_queue_t SSBufferFaceDetectQueue(void) {

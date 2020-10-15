@@ -11,10 +11,11 @@
 #import <opencv2/videoio/cap_ios.h>
 #import "SLImageDetectionViewController.h"
 #import <Masonry/Masonry.h>
-//#import <SLFaceLandmark/SLFaceLandmarkDetector.h>
-#import "SLFaceLandmarkDetector.h"
+#import <SLFaceLandmark/SLFaceLandmarkDetector.h>
+//#import "SLFaceLandmarkDetector.h"
 #import "SLNavigationController.h"
 #import "UIImage+HETARFace.h"
+#import "SLArithmeticUtils.h"
 
 @interface SLImageDetectionViewController () <QMUIAlbumViewControllerDelegate,QMUIImagePickerViewControllerDelegate,
 QMUIImagePickerPreviewViewControllerDelegate,UINavigationControllerDelegate,
@@ -35,6 +36,7 @@ UIImagePickerControllerDelegate>
     [super viewDidLoad];
     self.titleView.title = @"图片关键点";
     [self makeConstraints];
+    
     [self prepareFLDetector];
 }
 

@@ -8,8 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		0A32FCD81C77727A880FDF76 /* libPods-SLFaceLandmarkDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A7F4DF726242CB06A4CF17A /* libPods-SLFaceLandmarkDemo.a */; };
-		6B0DB80A2501E5F9004DFD14 /* SLFaceLandmark.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B8E4B4624EE1E79003E6EC7 /* SLFaceLandmark.framework */; };
-		6B0DB80B2501E5F9004DFD14 /* SLFaceLandmark.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6B8E4B4624EE1E79003E6EC7 /* SLFaceLandmark.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6B06553D25183E5B00D94D5E /* SLFacialFeatureAnalyzer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B06553C25183E5B00D94D5E /* SLFacialFeatureAnalyzer.m */; };
+		6B0C24C92530461500341772 /* SLBaseAnalyzer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B0C24C82530461500341772 /* SLBaseAnalyzer.m */; };
+		6B0C24CC2530462E00341772 /* SLNoseFeatureAnalyzer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B0C24CB2530462E00341772 /* SLNoseFeatureAnalyzer.m */; };
+		6B0C24CF25304BB900341772 /* SLJawFeatureAnalyzer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B0C24CE25304BB900341772 /* SLJawFeatureAnalyzer.m */; };
+		6B0C24D22530524700341772 /* SLMouthFeatureAnalyzer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B0C24D12530524700341772 /* SLMouthFeatureAnalyzer.m */; };
+		6B0C24D52530555C00341772 /* SLEyeFeatureAnalyzer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B0C24D42530555C00341772 /* SLEyeFeatureAnalyzer.m */; };
+		6B0C24D82530556C00341772 /* SLEyeBrowFeatureAnalyzer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B0C24D72530556C00341772 /* SLEyeBrowFeatureAnalyzer.m */; };
+		6B0C24DB2530557B00341772 /* SLFaceFeatureAnalyzer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B0C24DA2530557B00341772 /* SLFaceFeatureAnalyzer.m */; };
+		6B0C24DE2530559000341772 /* SLFiveEyesAnalyzer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B0C24DD2530559000341772 /* SLFiveEyesAnalyzer.m */; };
+		6B0C24E1253055A000341772 /* SLGoldenTriangleAnalyzer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B0C24E0253055A000341772 /* SLGoldenTriangleAnalyzer.m */; };
+		6B0C24E4253055B000341772 /* SLThreePartsAnalyzer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B0C24E3253055B000341772 /* SLThreePartsAnalyzer.m */; };
 		6B0DB81125023178004DFD14 /* 1FBD663F-A932-4168-8984-E94278B018BF.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6B0DB80F25023178004DFD14 /* 1FBD663F-A932-4168-8984-E94278B018BF.jpg */; };
 		6B0DB81525024E1A004DFD14 /* UIImage+HETARFace.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B0DB81325024E1A004DFD14 /* UIImage+HETARFace.m */; };
 		6B5088B624F3866D00D64877 /* SSCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B5088B424F3866D00D64877 /* SSCamera.m */; };
@@ -19,18 +28,10 @@
 		6B5088C224F3879C00D64877 /* SSAnimationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B5088C024F3879C00D64877 /* SSAnimationDelegate.m */; };
 		6B5088C724F3949F00D64877 /* SSGLKView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B5088C524F3949F00D64877 /* SSGLKView.m */; };
 		6B5679F324FCC9A200EE0008 /* rsa_private_key_pkcs8.pem in Resources */ = {isa = PBXBuildFile; fileRef = 6B5679F124FCC9A200EE0008 /* rsa_private_key_pkcs8.pem */; };
-		6B8A5690250F38A300A6D8FB /* SLSDKJSONFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B8A5676250F38A200A6D8FB /* SLSDKJSONFile.m */; };
-		6B8A5691250F38A300A6D8FB /* SLFaceDetectionResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B8A5679250F38A200A6D8FB /* SLFaceDetectionResult.m */; };
-		6B8A5692250F38A300A6D8FB /* SLSDKAuthURL.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B8A567A250F38A200A6D8FB /* SLSDKAuthURL.m */; };
-		6B8A5693250F38A300A6D8FB /* SLSDKAuthAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B8A567B250F38A200A6D8FB /* SLSDKAuthAPI.m */; };
-		6B8A5694250F38A300A6D8FB /* SLFaceLandmarkConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B8A567C250F38A200A6D8FB /* SLFaceLandmarkConfig.m */; };
-		6B8A5695250F38A300A6D8FB /* SLFaceLandmark.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B8A567F250F38A200A6D8FB /* SLFaceLandmark.m */; };
-		6B8A5696250F38A300A6D8FB /* SLSDKAuthDefine.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B8A5680250F38A200A6D8FB /* SLSDKAuthDefine.m */; };
-		6B8A5697250F38A300A6D8FB /* SLSDKAuthUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B8A5681250F38A200A6D8FB /* SLSDKAuthUtils.m */; };
-		6B8A5698250F38A300A6D8FB /* SLRSAProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B8A5682250F38A200A6D8FB /* SLRSAProvider.m */; };
-		6B8A5699250F38A300A6D8FB /* SLFaceLandmarkDetector.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6B8A5684250F38A200A6D8FB /* SLFaceLandmarkDetector.mm */; };
-		6B8A569A250F38A300A6D8FB /* SLSDKAuthProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B8A5688250F38A200A6D8FB /* SLSDKAuthProvider.m */; };
-		6B8A569B250F38A300A6D8FB /* NSDictionary+SLSDKAuth.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B8A568A250F38A200A6D8FB /* NSDictionary+SLSDKAuth.m */; };
+		6B713892253154E900F8A89B /* SLFaceLandmark.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B713890253154E400F8A89B /* SLFaceLandmark.framework */; };
+		6B713893253154E900F8A89B /* SLFaceLandmark.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6B713890253154E400F8A89B /* SLFaceLandmark.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6B784F17252FF4D100317D03 /* SLArithmeticUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B784F16252FF4D100317D03 /* SLArithmeticUtils.m */; };
+		6B784F1E25303BE700317D03 /* SLPointsUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B784F1D25303BE700317D03 /* SLPointsUtils.m */; };
 		6B8BC68B24F8DA3F004C4BF0 /* rsa_public_key.pem in Resources */ = {isa = PBXBuildFile; fileRef = 6B8BC68A24F8DA3F004C4BF0 /* rsa_public_key.pem */; };
 		6B8E4B1D24EE0951003E6EC7 /* SLNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B8E4B1C24EE0951003E6EC7 /* SLNavigationController.m */; };
 		6B8E4B2024EE099D003E6EC7 /* SLCommonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B8E4B1F24EE099D003E6EC7 /* SLCommonViewController.m */; };
@@ -48,13 +49,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		6B0DB80C2501E5F9004DFD14 /* Embed Frameworks */ = {
+		6B71385C25314FB600F8A89B /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				6B0DB80B2501E5F9004DFD14 /* SLFaceLandmark.framework in Embed Frameworks */,
+				6B713893253154E900F8A89B /* SLFaceLandmark.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -63,6 +64,28 @@
 
 /* Begin PBXFileReference section */
 		20CA21FA3C0657A78E5EE0E4 /* Pods-SLFaceLandmarkDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SLFaceLandmarkDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-SLFaceLandmarkDemo/Pods-SLFaceLandmarkDemo.release.xcconfig"; sourceTree = "<group>"; };
+		6B06553B25183E5B00D94D5E /* SLFacialFeatureAnalyzer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLFacialFeatureAnalyzer.h; sourceTree = "<group>"; };
+		6B06553C25183E5B00D94D5E /* SLFacialFeatureAnalyzer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLFacialFeatureAnalyzer.m; sourceTree = "<group>"; };
+		6B0C24C72530461500341772 /* SLBaseAnalyzer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLBaseAnalyzer.h; sourceTree = "<group>"; };
+		6B0C24C82530461500341772 /* SLBaseAnalyzer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLBaseAnalyzer.m; sourceTree = "<group>"; };
+		6B0C24CA2530462E00341772 /* SLNoseFeatureAnalyzer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLNoseFeatureAnalyzer.h; sourceTree = "<group>"; };
+		6B0C24CB2530462E00341772 /* SLNoseFeatureAnalyzer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLNoseFeatureAnalyzer.m; sourceTree = "<group>"; };
+		6B0C24CD25304BB900341772 /* SLJawFeatureAnalyzer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLJawFeatureAnalyzer.h; sourceTree = "<group>"; };
+		6B0C24CE25304BB900341772 /* SLJawFeatureAnalyzer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLJawFeatureAnalyzer.m; sourceTree = "<group>"; };
+		6B0C24D02530524700341772 /* SLMouthFeatureAnalyzer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLMouthFeatureAnalyzer.h; sourceTree = "<group>"; };
+		6B0C24D12530524700341772 /* SLMouthFeatureAnalyzer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLMouthFeatureAnalyzer.m; sourceTree = "<group>"; };
+		6B0C24D32530555C00341772 /* SLEyeFeatureAnalyzer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLEyeFeatureAnalyzer.h; sourceTree = "<group>"; };
+		6B0C24D42530555C00341772 /* SLEyeFeatureAnalyzer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLEyeFeatureAnalyzer.m; sourceTree = "<group>"; };
+		6B0C24D62530556C00341772 /* SLEyeBrowFeatureAnalyzer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLEyeBrowFeatureAnalyzer.h; sourceTree = "<group>"; };
+		6B0C24D72530556C00341772 /* SLEyeBrowFeatureAnalyzer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLEyeBrowFeatureAnalyzer.m; sourceTree = "<group>"; };
+		6B0C24D92530557B00341772 /* SLFaceFeatureAnalyzer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLFaceFeatureAnalyzer.h; sourceTree = "<group>"; };
+		6B0C24DA2530557B00341772 /* SLFaceFeatureAnalyzer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLFaceFeatureAnalyzer.m; sourceTree = "<group>"; };
+		6B0C24DC2530559000341772 /* SLFiveEyesAnalyzer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLFiveEyesAnalyzer.h; sourceTree = "<group>"; };
+		6B0C24DD2530559000341772 /* SLFiveEyesAnalyzer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLFiveEyesAnalyzer.m; sourceTree = "<group>"; };
+		6B0C24DF253055A000341772 /* SLGoldenTriangleAnalyzer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLGoldenTriangleAnalyzer.h; sourceTree = "<group>"; };
+		6B0C24E0253055A000341772 /* SLGoldenTriangleAnalyzer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLGoldenTriangleAnalyzer.m; sourceTree = "<group>"; };
+		6B0C24E2253055B000341772 /* SLThreePartsAnalyzer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLThreePartsAnalyzer.h; sourceTree = "<group>"; };
+		6B0C24E3253055B000341772 /* SLThreePartsAnalyzer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLThreePartsAnalyzer.m; sourceTree = "<group>"; };
 		6B0DB80F25023178004DFD14 /* 1FBD663F-A932-4168-8984-E94278B018BF.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "1FBD663F-A932-4168-8984-E94278B018BF.jpg"; sourceTree = "<group>"; };
 		6B0DB81325024E1A004DFD14 /* UIImage+HETARFace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+HETARFace.m"; sourceTree = "<group>"; };
 		6B0DB81425024E1A004DFD14 /* UIImage+HETARFace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+HETARFace.h"; sourceTree = "<group>"; };
@@ -79,31 +102,11 @@
 		6B5088C524F3949F00D64877 /* SSGLKView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSGLKView.m; sourceTree = "<group>"; };
 		6B5088C624F3949F00D64877 /* SSGLKView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSGLKView.h; sourceTree = "<group>"; };
 		6B5679F124FCC9A200EE0008 /* rsa_private_key_pkcs8.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = rsa_private_key_pkcs8.pem; sourceTree = "<group>"; };
-		6B8A5676250F38A200A6D8FB /* SLSDKJSONFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLSDKJSONFile.m; sourceTree = "<group>"; };
-		6B8A5677250F38A200A6D8FB /* SLRSAProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLRSAProvider.h; sourceTree = "<group>"; };
-		6B8A5678250F38A200A6D8FB /* SLSDKAuthProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLSDKAuthProvider.h; sourceTree = "<group>"; };
-		6B8A5679250F38A200A6D8FB /* SLFaceDetectionResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLFaceDetectionResult.m; sourceTree = "<group>"; };
-		6B8A567A250F38A200A6D8FB /* SLSDKAuthURL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLSDKAuthURL.m; sourceTree = "<group>"; };
-		6B8A567B250F38A200A6D8FB /* SLSDKAuthAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLSDKAuthAPI.m; sourceTree = "<group>"; };
-		6B8A567C250F38A200A6D8FB /* SLFaceLandmarkConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLFaceLandmarkConfig.m; sourceTree = "<group>"; };
-		6B8A567D250F38A200A6D8FB /* SLFaceLandmarkDetector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLFaceLandmarkDetector.h; sourceTree = "<group>"; };
-		6B8A567E250F38A200A6D8FB /* NSDictionary+SLSDKAuth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+SLSDKAuth.h"; sourceTree = "<group>"; };
-		6B8A567F250F38A200A6D8FB /* SLFaceLandmark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLFaceLandmark.m; sourceTree = "<group>"; };
-		6B8A5680250F38A200A6D8FB /* SLSDKAuthDefine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLSDKAuthDefine.m; sourceTree = "<group>"; };
-		6B8A5681250F38A200A6D8FB /* SLSDKAuthUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLSDKAuthUtils.m; sourceTree = "<group>"; };
-		6B8A5682250F38A200A6D8FB /* SLRSAProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLRSAProvider.m; sourceTree = "<group>"; };
-		6B8A5683250F38A200A6D8FB /* SLSDKJSONFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLSDKJSONFile.h; sourceTree = "<group>"; };
-		6B8A5684250F38A200A6D8FB /* SLFaceLandmarkDetector.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SLFaceLandmarkDetector.mm; sourceTree = "<group>"; };
-		6B8A5685250F38A200A6D8FB /* SLSDKAuthAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLSDKAuthAPI.h; sourceTree = "<group>"; };
-		6B8A5686250F38A200A6D8FB /* SLSDKAuthURL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLSDKAuthURL.h; sourceTree = "<group>"; };
-		6B8A5687250F38A200A6D8FB /* SLFaceDetectionResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLFaceDetectionResult.h; sourceTree = "<group>"; };
-		6B8A5688250F38A200A6D8FB /* SLSDKAuthProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLSDKAuthProvider.m; sourceTree = "<group>"; };
-		6B8A5689250F38A200A6D8FB /* SLFaceLandmark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLFaceLandmark.h; sourceTree = "<group>"; };
-		6B8A568A250F38A200A6D8FB /* NSDictionary+SLSDKAuth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+SLSDKAuth.m"; sourceTree = "<group>"; };
-		6B8A568B250F38A200A6D8FB /* SLFaceLandmarkDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLFaceLandmarkDefine.h; sourceTree = "<group>"; };
-		6B8A568C250F38A300A6D8FB /* SLFaceLandmarkConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLFaceLandmarkConfig.h; sourceTree = "<group>"; };
-		6B8A568D250F38A300A6D8FB /* SLSDKAuthUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLSDKAuthUtils.h; sourceTree = "<group>"; };
-		6B8A568E250F38A300A6D8FB /* SLSDKAuthDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLSDKAuthDefine.h; sourceTree = "<group>"; };
+		6B713890253154E400F8A89B /* SLFaceLandmark.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SLFaceLandmark.framework; sourceTree = "<group>"; };
+		6B784F15252FF4D100317D03 /* SLArithmeticUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLArithmeticUtils.h; sourceTree = "<group>"; };
+		6B784F16252FF4D100317D03 /* SLArithmeticUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLArithmeticUtils.m; sourceTree = "<group>"; };
+		6B784F1C25303BE700317D03 /* SLPointsUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLPointsUtils.h; sourceTree = "<group>"; };
+		6B784F1D25303BE700317D03 /* SLPointsUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLPointsUtils.m; sourceTree = "<group>"; };
 		6B8BC68A24F8DA3F004C4BF0 /* rsa_public_key.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = rsa_public_key.pem; sourceTree = "<group>"; };
 		6B8E4B1B24EE0951003E6EC7 /* SLNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLNavigationController.h; sourceTree = "<group>"; };
 		6B8E4B1C24EE0951003E6EC7 /* SLNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLNavigationController.m; sourceTree = "<group>"; };
@@ -139,7 +142,7 @@
 			files = (
 				6B8E4B4124EE0EE3003E6EC7 /* opencv2.framework in Frameworks */,
 				0A32FCD81C77727A880FDF76 /* libPods-SLFaceLandmarkDemo.a in Frameworks */,
-				6B0DB80A2501E5F9004DFD14 /* SLFaceLandmark.framework in Frameworks */,
+				6B713892253154E900F8A89B /* SLFaceLandmark.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -162,6 +165,17 @@
 				8A7F4DF726242CB06A4CF17A /* libPods-SLFaceLandmarkDemo.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6B06553A25183E3000D94D5E /* FaceAnalyzer */ = {
+			isa = PBXGroup;
+			children = (
+				6B784F182530308F00317D03 /* Features */,
+				6B784F14252FF4A000317D03 /* Utils */,
+				6B06553B25183E5B00D94D5E /* SLFacialFeatureAnalyzer.h */,
+				6B06553C25183E5B00D94D5E /* SLFacialFeatureAnalyzer.m */,
+			);
+			path = FaceAnalyzer;
 			sourceTree = "<group>";
 		};
 		6B0DB81225024E0C004DFD14 /* Category */ = {
@@ -199,52 +213,42 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		6B8A5675250F38A200A6D8FB /* Objc */ = {
+		6B784F14252FF4A000317D03 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				6B8A569D250F38C600A6D8FB /* Landmark */,
-				6B8A569C250F38A900A6D8FB /* RSA */,
-				6B8A5683250F38A200A6D8FB /* SLSDKJSONFile.h */,
-				6B8A5676250F38A200A6D8FB /* SLSDKJSONFile.m */,
-				6B8A5686250F38A200A6D8FB /* SLSDKAuthURL.h */,
-				6B8A567A250F38A200A6D8FB /* SLSDKAuthURL.m */,
-				6B8A5685250F38A200A6D8FB /* SLSDKAuthAPI.h */,
-				6B8A567B250F38A200A6D8FB /* SLSDKAuthAPI.m */,
-				6B8A568E250F38A300A6D8FB /* SLSDKAuthDefine.h */,
-				6B8A5680250F38A200A6D8FB /* SLSDKAuthDefine.m */,
-				6B8A568D250F38A300A6D8FB /* SLSDKAuthUtils.h */,
-				6B8A5681250F38A200A6D8FB /* SLSDKAuthUtils.m */,
-				6B8A568A250F38A200A6D8FB /* NSDictionary+SLSDKAuth.m */,
-				6B8A567E250F38A200A6D8FB /* NSDictionary+SLSDKAuth.h */,
-				6B8A5678250F38A200A6D8FB /* SLSDKAuthProvider.h */,
-				6B8A5688250F38A200A6D8FB /* SLSDKAuthProvider.m */,
+				6B784F1C25303BE700317D03 /* SLPointsUtils.h */,
+				6B784F1D25303BE700317D03 /* SLPointsUtils.m */,
+				6B784F15252FF4D100317D03 /* SLArithmeticUtils.h */,
+				6B784F16252FF4D100317D03 /* SLArithmeticUtils.m */,
 			);
-			path = Objc;
+			path = Utils;
 			sourceTree = "<group>";
 		};
-		6B8A569C250F38A900A6D8FB /* RSA */ = {
+		6B784F182530308F00317D03 /* Features */ = {
 			isa = PBXGroup;
 			children = (
-				6B8A5677250F38A200A6D8FB /* SLRSAProvider.h */,
-				6B8A5682250F38A200A6D8FB /* SLRSAProvider.m */,
+				6B0C24C72530461500341772 /* SLBaseAnalyzer.h */,
+				6B0C24C82530461500341772 /* SLBaseAnalyzer.m */,
+				6B0C24CD25304BB900341772 /* SLJawFeatureAnalyzer.h */,
+				6B0C24CE25304BB900341772 /* SLJawFeatureAnalyzer.m */,
+				6B0C24CA2530462E00341772 /* SLNoseFeatureAnalyzer.h */,
+				6B0C24CB2530462E00341772 /* SLNoseFeatureAnalyzer.m */,
+				6B0C24D02530524700341772 /* SLMouthFeatureAnalyzer.h */,
+				6B0C24D12530524700341772 /* SLMouthFeatureAnalyzer.m */,
+				6B0C24D32530555C00341772 /* SLEyeFeatureAnalyzer.h */,
+				6B0C24D42530555C00341772 /* SLEyeFeatureAnalyzer.m */,
+				6B0C24D62530556C00341772 /* SLEyeBrowFeatureAnalyzer.h */,
+				6B0C24D72530556C00341772 /* SLEyeBrowFeatureAnalyzer.m */,
+				6B0C24D92530557B00341772 /* SLFaceFeatureAnalyzer.h */,
+				6B0C24DA2530557B00341772 /* SLFaceFeatureAnalyzer.m */,
+				6B0C24DC2530559000341772 /* SLFiveEyesAnalyzer.h */,
+				6B0C24DD2530559000341772 /* SLFiveEyesAnalyzer.m */,
+				6B0C24DF253055A000341772 /* SLGoldenTriangleAnalyzer.h */,
+				6B0C24E0253055A000341772 /* SLGoldenTriangleAnalyzer.m */,
+				6B0C24E2253055B000341772 /* SLThreePartsAnalyzer.h */,
+				6B0C24E3253055B000341772 /* SLThreePartsAnalyzer.m */,
 			);
-			path = RSA;
-			sourceTree = "<group>";
-		};
-		6B8A569D250F38C600A6D8FB /* Landmark */ = {
-			isa = PBXGroup;
-			children = (
-				6B8A5689250F38A200A6D8FB /* SLFaceLandmark.h */,
-				6B8A567F250F38A200A6D8FB /* SLFaceLandmark.m */,
-				6B8A568B250F38A200A6D8FB /* SLFaceLandmarkDefine.h */,
-				6B8A568C250F38A300A6D8FB /* SLFaceLandmarkConfig.h */,
-				6B8A567C250F38A200A6D8FB /* SLFaceLandmarkConfig.m */,
-				6B8A5687250F38A200A6D8FB /* SLFaceDetectionResult.h */,
-				6B8A5679250F38A200A6D8FB /* SLFaceDetectionResult.m */,
-				6B8A567D250F38A200A6D8FB /* SLFaceLandmarkDetector.h */,
-				6B8A5684250F38A200A6D8FB /* SLFaceLandmarkDetector.mm */,
-			);
-			path = Landmark;
+			path = Features;
 			sourceTree = "<group>";
 		};
 		6B8E4B1624EE089E003E6EC7 /* ViewController */ = {
@@ -313,6 +317,7 @@
 		6B8E4B2D24EE0EAD003E6EC7 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				6B713890253154E400F8A89B /* SLFaceLandmark.framework */,
 				6B8E4B3F24EE0EE3003E6EC7 /* opencv2.framework */,
 			);
 			path = Lib;
@@ -339,7 +344,7 @@
 		6B9765D624EE056900CDE0FB /* SLFaceLandmarkDemo */ = {
 			isa = PBXGroup;
 			children = (
-				6B8A5675250F38A200A6D8FB /* Objc */,
+				6B06553A25183E3000D94D5E /* FaceAnalyzer */,
 				6B5088B324F3865400D64877 /* Common */,
 				6B8E4B2D24EE0EAD003E6EC7 /* Lib */,
 				6B8E4B2A24EE0DCB003E6EC7 /* Resource */,
@@ -368,7 +373,7 @@
 				6B9765D124EE056900CDE0FB /* Frameworks */,
 				6B9765D224EE056900CDE0FB /* Resources */,
 				25CC85BEEE1FB8FB02378E41 /* [CP] Copy Pods Resources */,
-				6B0DB80C2501E5F9004DFD14 /* Embed Frameworks */,
+				6B71385C25314FB600F8A89B /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -385,7 +390,7 @@
 		6B9765CC24EE056900CDE0FB /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1160;
+				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = "马远征";
 				TargetAttributes = {
 					6B9765D324EE056900CDE0FB = {
@@ -473,31 +478,32 @@
 			files = (
 				6B9765DF24EE056900CDE0FB /* ViewController.m in Sources */,
 				6B5088C224F3879C00D64877 /* SSAnimationDelegate.m in Sources */,
-				6B8A569A250F38A300A6D8FB /* SLSDKAuthProvider.m in Sources */,
+				6B0C24D52530555C00341772 /* SLEyeFeatureAnalyzer.m in Sources */,
+				6B06553D25183E5B00D94D5E /* SLFacialFeatureAnalyzer.m in Sources */,
+				6B0C24E1253055A000341772 /* SLGoldenTriangleAnalyzer.m in Sources */,
 				6B9765D924EE056900CDE0FB /* AppDelegate.m in Sources */,
-				6B8A5694250F38A300A6D8FB /* SLFaceLandmarkConfig.m in Sources */,
-				6B8A5699250F38A300A6D8FB /* SLFaceLandmarkDetector.mm in Sources */,
-				6B8A569B250F38A300A6D8FB /* NSDictionary+SLSDKAuth.m in Sources */,
+				6B0C24E4253055B000341772 /* SLThreePartsAnalyzer.m in Sources */,
 				6B5088BB24F3867800D64877 /* AVCaptureDevice+SSDevice.m in Sources */,
+				6B0C24CF25304BB900341772 /* SLJawFeatureAnalyzer.m in Sources */,
 				6B8E4B2324EE09CF003E6EC7 /* SLTableViewController.m in Sources */,
-				6B8A5690250F38A300A6D8FB /* SLSDKJSONFile.m in Sources */,
+				6B0C24C92530461500341772 /* SLBaseAnalyzer.m in Sources */,
 				6B8E4B1D24EE0951003E6EC7 /* SLNavigationController.m in Sources */,
-				6B8A5696250F38A300A6D8FB /* SLSDKAuthDefine.m in Sources */,
 				6B0DB81525024E1A004DFD14 /* UIImage+HETARFace.m in Sources */,
+				6B784F17252FF4D100317D03 /* SLArithmeticUtils.m in Sources */,
 				6B5088B624F3866D00D64877 /* SSCamera.m in Sources */,
-				6B8A5697250F38A300A6D8FB /* SLSDKAuthUtils.m in Sources */,
-				6B8A5691250F38A300A6D8FB /* SLFaceDetectionResult.m in Sources */,
+				6B0C24CC2530462E00341772 /* SLNoseFeatureAnalyzer.m in Sources */,
+				6B784F1E25303BE700317D03 /* SLPointsUtils.m in Sources */,
 				6B8E4B2624EE0C9C003E6EC7 /* SLImageDetectionViewController.mm in Sources */,
+				6B0C24D22530524700341772 /* SLMouthFeatureAnalyzer.m in Sources */,
 				6B8E4B2024EE099D003E6EC7 /* SLCommonViewController.m in Sources */,
 				6B5088C724F3949F00D64877 /* SSGLKView.m in Sources */,
-				6B8A5692250F38A300A6D8FB /* SLSDKAuthURL.m in Sources */,
 				6B5088BF24F3868500D64877 /* SSFaceObject.m in Sources */,
-				6B8A5698250F38A300A6D8FB /* SLRSAProvider.m in Sources */,
 				6B9765EA24EE056B00CDE0FB /* main.m in Sources */,
 				6B5088BC24F3867800D64877 /* UIDevice+SSDevice.m in Sources */,
-				6B8A5695250F38A300A6D8FB /* SLFaceLandmark.m in Sources */,
-				6B8A5693250F38A300A6D8FB /* SLSDKAuthAPI.m in Sources */,
+				6B0C24DE2530559000341772 /* SLFiveEyesAnalyzer.m in Sources */,
+				6B0C24DB2530557B00341772 /* SLFaceFeatureAnalyzer.m in Sources */,
 				6B8E4B2924EE0CAA003E6EC7 /* SLVideoBufferDetectionViewController.mm in Sources */,
+				6B0C24D82530556C00341772 /* SLEyeBrowFeatureAnalyzer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -549,6 +555,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -573,7 +580,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -607,6 +614,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -625,7 +633,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -640,7 +648,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = WU2WFZ2B66;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -648,7 +656,7 @@
 					"$(PROJECT_DIR)/SLFaceLandmarkDemo/Lib",
 				);
 				INFOPLIST_FILE = SLFaceLandmarkDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -668,7 +676,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = WU2WFZ2B66;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -676,7 +684,7 @@
 					"$(PROJECT_DIR)/SLFaceLandmarkDemo/Lib",
 				);
 				INFOPLIST_FILE = SLFaceLandmarkDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
