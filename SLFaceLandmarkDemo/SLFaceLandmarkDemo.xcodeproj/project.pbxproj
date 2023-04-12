@@ -8,17 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0A32FCD81C77727A880FDF76 /* libPods-SLFaceLandmarkDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A7F4DF726242CB06A4CF17A /* libPods-SLFaceLandmarkDemo.a */; };
-		6B06553D25183E5B00D94D5E /* SLFacialFeatureAnalyzer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B06553C25183E5B00D94D5E /* SLFacialFeatureAnalyzer.m */; };
-		6B0C24C92530461500341772 /* SLBaseAnalyzer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B0C24C82530461500341772 /* SLBaseAnalyzer.m */; };
-		6B0C24CC2530462E00341772 /* SLNoseFeatureAnalyzer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B0C24CB2530462E00341772 /* SLNoseFeatureAnalyzer.m */; };
-		6B0C24CF25304BB900341772 /* SLJawFeatureAnalyzer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B0C24CE25304BB900341772 /* SLJawFeatureAnalyzer.m */; };
-		6B0C24D22530524700341772 /* SLMouthFeatureAnalyzer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B0C24D12530524700341772 /* SLMouthFeatureAnalyzer.m */; };
-		6B0C24D52530555C00341772 /* SLEyeFeatureAnalyzer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B0C24D42530555C00341772 /* SLEyeFeatureAnalyzer.m */; };
-		6B0C24D82530556C00341772 /* SLEyeBrowFeatureAnalyzer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B0C24D72530556C00341772 /* SLEyeBrowFeatureAnalyzer.m */; };
-		6B0C24DB2530557B00341772 /* SLFaceFeatureAnalyzer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B0C24DA2530557B00341772 /* SLFaceFeatureAnalyzer.m */; };
-		6B0C24DE2530559000341772 /* SLFiveEyesAnalyzer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B0C24DD2530559000341772 /* SLFiveEyesAnalyzer.m */; };
-		6B0C24E1253055A000341772 /* SLGoldenTriangleAnalyzer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B0C24E0253055A000341772 /* SLGoldenTriangleAnalyzer.m */; };
-		6B0C24E4253055B000341772 /* SLThreePartsAnalyzer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B0C24E3253055B000341772 /* SLThreePartsAnalyzer.m */; };
 		6B0DB81125023178004DFD14 /* 1FBD663F-A932-4168-8984-E94278B018BF.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6B0DB80F25023178004DFD14 /* 1FBD663F-A932-4168-8984-E94278B018BF.jpg */; };
 		6B0DB81525024E1A004DFD14 /* UIImage+HETARFace.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B0DB81325024E1A004DFD14 /* UIImage+HETARFace.m */; };
 		6B5088B624F3866D00D64877 /* SSCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B5088B424F3866D00D64877 /* SSCamera.m */; };
@@ -30,8 +19,6 @@
 		6B5679F324FCC9A200EE0008 /* rsa_private_key_pkcs8.pem in Resources */ = {isa = PBXBuildFile; fileRef = 6B5679F124FCC9A200EE0008 /* rsa_private_key_pkcs8.pem */; };
 		6B713892253154E900F8A89B /* SLFaceLandmark.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B713890253154E400F8A89B /* SLFaceLandmark.framework */; };
 		6B713893253154E900F8A89B /* SLFaceLandmark.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6B713890253154E400F8A89B /* SLFaceLandmark.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		6B784F17252FF4D100317D03 /* SLArithmeticUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B784F16252FF4D100317D03 /* SLArithmeticUtils.m */; };
-		6B784F1E25303BE700317D03 /* SLPointsUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B784F1D25303BE700317D03 /* SLPointsUtils.m */; };
 		6B8BC68B24F8DA3F004C4BF0 /* rsa_public_key.pem in Resources */ = {isa = PBXBuildFile; fileRef = 6B8BC68A24F8DA3F004C4BF0 /* rsa_public_key.pem */; };
 		6B8E4B1D24EE0951003E6EC7 /* SLNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B8E4B1C24EE0951003E6EC7 /* SLNavigationController.m */; };
 		6B8E4B2024EE099D003E6EC7 /* SLCommonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B8E4B1F24EE099D003E6EC7 /* SLCommonViewController.m */; };
@@ -64,28 +51,6 @@
 
 /* Begin PBXFileReference section */
 		20CA21FA3C0657A78E5EE0E4 /* Pods-SLFaceLandmarkDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SLFaceLandmarkDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-SLFaceLandmarkDemo/Pods-SLFaceLandmarkDemo.release.xcconfig"; sourceTree = "<group>"; };
-		6B06553B25183E5B00D94D5E /* SLFacialFeatureAnalyzer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLFacialFeatureAnalyzer.h; sourceTree = "<group>"; };
-		6B06553C25183E5B00D94D5E /* SLFacialFeatureAnalyzer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLFacialFeatureAnalyzer.m; sourceTree = "<group>"; };
-		6B0C24C72530461500341772 /* SLBaseAnalyzer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLBaseAnalyzer.h; sourceTree = "<group>"; };
-		6B0C24C82530461500341772 /* SLBaseAnalyzer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLBaseAnalyzer.m; sourceTree = "<group>"; };
-		6B0C24CA2530462E00341772 /* SLNoseFeatureAnalyzer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLNoseFeatureAnalyzer.h; sourceTree = "<group>"; };
-		6B0C24CB2530462E00341772 /* SLNoseFeatureAnalyzer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLNoseFeatureAnalyzer.m; sourceTree = "<group>"; };
-		6B0C24CD25304BB900341772 /* SLJawFeatureAnalyzer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLJawFeatureAnalyzer.h; sourceTree = "<group>"; };
-		6B0C24CE25304BB900341772 /* SLJawFeatureAnalyzer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLJawFeatureAnalyzer.m; sourceTree = "<group>"; };
-		6B0C24D02530524700341772 /* SLMouthFeatureAnalyzer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLMouthFeatureAnalyzer.h; sourceTree = "<group>"; };
-		6B0C24D12530524700341772 /* SLMouthFeatureAnalyzer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLMouthFeatureAnalyzer.m; sourceTree = "<group>"; };
-		6B0C24D32530555C00341772 /* SLEyeFeatureAnalyzer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLEyeFeatureAnalyzer.h; sourceTree = "<group>"; };
-		6B0C24D42530555C00341772 /* SLEyeFeatureAnalyzer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLEyeFeatureAnalyzer.m; sourceTree = "<group>"; };
-		6B0C24D62530556C00341772 /* SLEyeBrowFeatureAnalyzer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLEyeBrowFeatureAnalyzer.h; sourceTree = "<group>"; };
-		6B0C24D72530556C00341772 /* SLEyeBrowFeatureAnalyzer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLEyeBrowFeatureAnalyzer.m; sourceTree = "<group>"; };
-		6B0C24D92530557B00341772 /* SLFaceFeatureAnalyzer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLFaceFeatureAnalyzer.h; sourceTree = "<group>"; };
-		6B0C24DA2530557B00341772 /* SLFaceFeatureAnalyzer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLFaceFeatureAnalyzer.m; sourceTree = "<group>"; };
-		6B0C24DC2530559000341772 /* SLFiveEyesAnalyzer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLFiveEyesAnalyzer.h; sourceTree = "<group>"; };
-		6B0C24DD2530559000341772 /* SLFiveEyesAnalyzer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLFiveEyesAnalyzer.m; sourceTree = "<group>"; };
-		6B0C24DF253055A000341772 /* SLGoldenTriangleAnalyzer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLGoldenTriangleAnalyzer.h; sourceTree = "<group>"; };
-		6B0C24E0253055A000341772 /* SLGoldenTriangleAnalyzer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLGoldenTriangleAnalyzer.m; sourceTree = "<group>"; };
-		6B0C24E2253055B000341772 /* SLThreePartsAnalyzer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLThreePartsAnalyzer.h; sourceTree = "<group>"; };
-		6B0C24E3253055B000341772 /* SLThreePartsAnalyzer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLThreePartsAnalyzer.m; sourceTree = "<group>"; };
 		6B0DB80F25023178004DFD14 /* 1FBD663F-A932-4168-8984-E94278B018BF.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "1FBD663F-A932-4168-8984-E94278B018BF.jpg"; sourceTree = "<group>"; };
 		6B0DB81325024E1A004DFD14 /* UIImage+HETARFace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+HETARFace.m"; sourceTree = "<group>"; };
 		6B0DB81425024E1A004DFD14 /* UIImage+HETARFace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+HETARFace.h"; sourceTree = "<group>"; };
@@ -103,10 +68,6 @@
 		6B5088C624F3949F00D64877 /* SSGLKView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSGLKView.h; sourceTree = "<group>"; };
 		6B5679F124FCC9A200EE0008 /* rsa_private_key_pkcs8.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = rsa_private_key_pkcs8.pem; sourceTree = "<group>"; };
 		6B713890253154E400F8A89B /* SLFaceLandmark.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SLFaceLandmark.framework; sourceTree = "<group>"; };
-		6B784F15252FF4D100317D03 /* SLArithmeticUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLArithmeticUtils.h; sourceTree = "<group>"; };
-		6B784F16252FF4D100317D03 /* SLArithmeticUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLArithmeticUtils.m; sourceTree = "<group>"; };
-		6B784F1C25303BE700317D03 /* SLPointsUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLPointsUtils.h; sourceTree = "<group>"; };
-		6B784F1D25303BE700317D03 /* SLPointsUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLPointsUtils.m; sourceTree = "<group>"; };
 		6B8BC68A24F8DA3F004C4BF0 /* rsa_public_key.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = rsa_public_key.pem; sourceTree = "<group>"; };
 		6B8E4B1B24EE0951003E6EC7 /* SLNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLNavigationController.h; sourceTree = "<group>"; };
 		6B8E4B1C24EE0951003E6EC7 /* SLNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLNavigationController.m; sourceTree = "<group>"; };
@@ -167,17 +128,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		6B06553A25183E3000D94D5E /* FaceAnalyzer */ = {
-			isa = PBXGroup;
-			children = (
-				6B784F182530308F00317D03 /* Features */,
-				6B784F14252FF4A000317D03 /* Utils */,
-				6B06553B25183E5B00D94D5E /* SLFacialFeatureAnalyzer.h */,
-				6B06553C25183E5B00D94D5E /* SLFacialFeatureAnalyzer.m */,
-			);
-			path = FaceAnalyzer;
-			sourceTree = "<group>";
-		};
 		6B0DB81225024E0C004DFD14 /* Category */ = {
 			isa = PBXGroup;
 			children = (
@@ -211,44 +161,6 @@
 				6B5088C524F3949F00D64877 /* SSGLKView.m */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		6B784F14252FF4A000317D03 /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-				6B784F1C25303BE700317D03 /* SLPointsUtils.h */,
-				6B784F1D25303BE700317D03 /* SLPointsUtils.m */,
-				6B784F15252FF4D100317D03 /* SLArithmeticUtils.h */,
-				6B784F16252FF4D100317D03 /* SLArithmeticUtils.m */,
-			);
-			path = Utils;
-			sourceTree = "<group>";
-		};
-		6B784F182530308F00317D03 /* Features */ = {
-			isa = PBXGroup;
-			children = (
-				6B0C24C72530461500341772 /* SLBaseAnalyzer.h */,
-				6B0C24C82530461500341772 /* SLBaseAnalyzer.m */,
-				6B0C24CD25304BB900341772 /* SLJawFeatureAnalyzer.h */,
-				6B0C24CE25304BB900341772 /* SLJawFeatureAnalyzer.m */,
-				6B0C24CA2530462E00341772 /* SLNoseFeatureAnalyzer.h */,
-				6B0C24CB2530462E00341772 /* SLNoseFeatureAnalyzer.m */,
-				6B0C24D02530524700341772 /* SLMouthFeatureAnalyzer.h */,
-				6B0C24D12530524700341772 /* SLMouthFeatureAnalyzer.m */,
-				6B0C24D32530555C00341772 /* SLEyeFeatureAnalyzer.h */,
-				6B0C24D42530555C00341772 /* SLEyeFeatureAnalyzer.m */,
-				6B0C24D62530556C00341772 /* SLEyeBrowFeatureAnalyzer.h */,
-				6B0C24D72530556C00341772 /* SLEyeBrowFeatureAnalyzer.m */,
-				6B0C24D92530557B00341772 /* SLFaceFeatureAnalyzer.h */,
-				6B0C24DA2530557B00341772 /* SLFaceFeatureAnalyzer.m */,
-				6B0C24DC2530559000341772 /* SLFiveEyesAnalyzer.h */,
-				6B0C24DD2530559000341772 /* SLFiveEyesAnalyzer.m */,
-				6B0C24DF253055A000341772 /* SLGoldenTriangleAnalyzer.h */,
-				6B0C24E0253055A000341772 /* SLGoldenTriangleAnalyzer.m */,
-				6B0C24E2253055B000341772 /* SLThreePartsAnalyzer.h */,
-				6B0C24E3253055B000341772 /* SLThreePartsAnalyzer.m */,
-			);
-			path = Features;
 			sourceTree = "<group>";
 		};
 		6B8E4B1624EE089E003E6EC7 /* ViewController */ = {
@@ -344,7 +256,6 @@
 		6B9765D624EE056900CDE0FB /* SLFaceLandmarkDemo */ = {
 			isa = PBXGroup;
 			children = (
-				6B06553A25183E3000D94D5E /* FaceAnalyzer */,
 				6B5088B324F3865400D64877 /* Common */,
 				6B8E4B2D24EE0EAD003E6EC7 /* Lib */,
 				6B8E4B2A24EE0DCB003E6EC7 /* Resource */,
@@ -478,32 +389,19 @@
 			files = (
 				6B9765DF24EE056900CDE0FB /* ViewController.m in Sources */,
 				6B5088C224F3879C00D64877 /* SSAnimationDelegate.m in Sources */,
-				6B0C24D52530555C00341772 /* SLEyeFeatureAnalyzer.m in Sources */,
-				6B06553D25183E5B00D94D5E /* SLFacialFeatureAnalyzer.m in Sources */,
-				6B0C24E1253055A000341772 /* SLGoldenTriangleAnalyzer.m in Sources */,
 				6B9765D924EE056900CDE0FB /* AppDelegate.m in Sources */,
-				6B0C24E4253055B000341772 /* SLThreePartsAnalyzer.m in Sources */,
 				6B5088BB24F3867800D64877 /* AVCaptureDevice+SSDevice.m in Sources */,
-				6B0C24CF25304BB900341772 /* SLJawFeatureAnalyzer.m in Sources */,
 				6B8E4B2324EE09CF003E6EC7 /* SLTableViewController.m in Sources */,
-				6B0C24C92530461500341772 /* SLBaseAnalyzer.m in Sources */,
 				6B8E4B1D24EE0951003E6EC7 /* SLNavigationController.m in Sources */,
 				6B0DB81525024E1A004DFD14 /* UIImage+HETARFace.m in Sources */,
-				6B784F17252FF4D100317D03 /* SLArithmeticUtils.m in Sources */,
 				6B5088B624F3866D00D64877 /* SSCamera.m in Sources */,
-				6B0C24CC2530462E00341772 /* SLNoseFeatureAnalyzer.m in Sources */,
-				6B784F1E25303BE700317D03 /* SLPointsUtils.m in Sources */,
 				6B8E4B2624EE0C9C003E6EC7 /* SLImageDetectionViewController.mm in Sources */,
-				6B0C24D22530524700341772 /* SLMouthFeatureAnalyzer.m in Sources */,
 				6B8E4B2024EE099D003E6EC7 /* SLCommonViewController.m in Sources */,
 				6B5088C724F3949F00D64877 /* SSGLKView.m in Sources */,
 				6B5088BF24F3868500D64877 /* SSFaceObject.m in Sources */,
 				6B9765EA24EE056B00CDE0FB /* main.m in Sources */,
 				6B5088BC24F3867800D64877 /* UIDevice+SSDevice.m in Sources */,
-				6B0C24DE2530559000341772 /* SLFiveEyesAnalyzer.m in Sources */,
-				6B0C24DB2530557B00341772 /* SLFaceFeatureAnalyzer.m in Sources */,
 				6B8E4B2924EE0CAA003E6EC7 /* SLVideoBufferDetectionViewController.mm in Sources */,
-				6B0C24D82530556C00341772 /* SLEyeBrowFeatureAnalyzer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
