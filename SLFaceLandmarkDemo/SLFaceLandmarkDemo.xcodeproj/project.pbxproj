@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0A32FCD81C77727A880FDF76 /* libPods-SLFaceLandmarkDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A7F4DF726242CB06A4CF17A /* libPods-SLFaceLandmarkDemo.a */; };
-		6B0DB81125023178004DFD14 /* 1FBD663F-A932-4168-8984-E94278B018BF.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6B0DB80F25023178004DFD14 /* 1FBD663F-A932-4168-8984-E94278B018BF.jpg */; };
 		6B0DB81525024E1A004DFD14 /* UIImage+HETARFace.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B0DB81325024E1A004DFD14 /* UIImage+HETARFace.m */; };
 		6B5088B624F3866D00D64877 /* SSCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B5088B424F3866D00D64877 /* SSCamera.m */; };
 		6B5088BB24F3867800D64877 /* AVCaptureDevice+SSDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B5088B724F3867700D64877 /* AVCaptureDevice+SSDevice.m */; };
@@ -51,7 +50,6 @@
 
 /* Begin PBXFileReference section */
 		20CA21FA3C0657A78E5EE0E4 /* Pods-SLFaceLandmarkDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SLFaceLandmarkDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-SLFaceLandmarkDemo/Pods-SLFaceLandmarkDemo.release.xcconfig"; sourceTree = "<group>"; };
-		6B0DB80F25023178004DFD14 /* 1FBD663F-A932-4168-8984-E94278B018BF.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "1FBD663F-A932-4168-8984-E94278B018BF.jpg"; sourceTree = "<group>"; };
 		6B0DB81325024E1A004DFD14 /* UIImage+HETARFace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+HETARFace.m"; sourceTree = "<group>"; };
 		6B0DB81425024E1A004DFD14 /* UIImage+HETARFace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+HETARFace.h"; sourceTree = "<group>"; };
 		6B5088B424F3866D00D64877 /* SSCamera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSCamera.m; sourceTree = "<group>"; };
@@ -218,7 +216,6 @@
 		6B8E4B2A24EE0DCB003E6EC7 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				6B0DB80F25023178004DFD14 /* 1FBD663F-A932-4168-8984-E94278B018BF.jpg */,
 				6B5679F124FCC9A200EE0008 /* rsa_private_key_pkcs8.pem */,
 				6B8BC68A24F8DA3F004C4BF0 /* rsa_public_key.pem */,
 				6B8E4B2B24EE0DD3003E6EC7 /* frame.jpg */,
@@ -336,7 +333,6 @@
 				6B8BC68B24F8DA3F004C4BF0 /* rsa_public_key.pem in Resources */,
 				6B9765E424EE056B00CDE0FB /* Assets.xcassets in Resources */,
 				6B9765E224EE056900CDE0FB /* Main.storyboard in Resources */,
-				6B0DB81125023178004DFD14 /* 1FBD663F-A932-4168-8984-E94278B018BF.jpg in Resources */,
 				6B8E4B2C24EE0DD3003E6EC7 /* frame.jpg in Resources */,
 				6B5679F324FCC9A200EE0008 /* rsa_private_key_pkcs8.pem in Resources */,
 			);
